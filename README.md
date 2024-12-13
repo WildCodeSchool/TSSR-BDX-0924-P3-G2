@@ -29,6 +29,11 @@ C'est pourquoi, nous allons restructurer toute l'infrastructure du client avec :
 
 ### a) Sprint 1
 #### Membres du groupe et leurs rôles
+**Membre** | Rôles 
+---------- | -----
+Julien Normand | Product Owner
+Mindy Setham | TSSR
+Sybill Gribonval | Scrum Master
 
 #### Objectifs du sprint
 
