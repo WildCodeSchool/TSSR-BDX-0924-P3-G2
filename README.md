@@ -55,7 +55,7 @@ Nos objectifs de la semaine :
   * Mise en place du AD-DS et de son arborescence
 
 
-### c) Sprint 3
+### c) Sprint 3 à 5
 #### Membres du groupe et leurs rôles
 Product Owner | Scrum Master | TSSR
 --- | --- | ---
@@ -69,17 +69,6 @@ Nos objectifs de la semaine :
     * Réseau CORE
     * Réseau DMZ
   * Intégration des utilisateurs
-
-
-### d) Sprint 4
-#### Membres du groupe et leurs rôles
-Product Owner | Scrum Master | TSSR
---- | --- | ---
-Julien Normand | Sybill Gribonval | Mindy Setham
-
-#### Objectifs du sprint
-Nos objectifs de la semaine n'ont pas changé du sprint précédent.
-
 
 ## 4. Présentation final
 
