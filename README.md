@@ -70,7 +70,7 @@ Nos objectifs de la semaine :
     * Réseau DMZ
   * Intégration des utilisateurs
 
-  * ### c) Sprint 6
+  * ### d) Sprint 6
 #### Membres du groupe et leurs rôles
 Product Owner | Scrum Master | TSSR
 --- | --- | ---
