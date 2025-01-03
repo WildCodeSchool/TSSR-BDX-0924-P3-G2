@@ -1,4 +1,4 @@
-# Document générale
+# Documentation générale
 
 ## 1. Présentation du projet
 Le projet consiste à créer une infrastructure réseau pour la société **EcoTech Solutions**. Durant ce projet, nous mettons en pratique les compétences suivantes :
@@ -16,14 +16,14 @@ Actuellement, le client **EcoTech Solutions** a une infrastructure basique avec 
   * Box FAI
 
 Le client souhaite modernier son infrastructure pour avoir :
-  * Une meilleur performance
-  * Une meilleur sécurité
-  * Une meilleur gestion du réseau
+  * Une meilleure performance
+  * Une meilleure sécurité
+  * Une meilleure gestion du réseau
 
 C'est pourquoi, nous allons restructurer toute l'infrastructure du client avec :
   * Des sous-réseaus (LAN, CORE, DMZ)
-  * Des machines dédiés (Serveur Windows, Serveur Web, ...)
-  * Implémentation d'équipement réseau (routeur, switch, ...)
+  * Des machines dédiées (Serveur Windows, Serveur Web, ...)
+  * Implémentation d'équipements réseau (routeur, switch, ...)
 
 ## 3. Les sprints
 
@@ -70,9 +70,23 @@ Nos objectifs de la semaine :
     * Réseau DMZ
   * Intégration des utilisateurs
 
-## 4. Présentation final
+  * ### c) Sprint 6
+#### Membres du groupe et leurs rôles
+Product Owner | Scrum Master | TSSR
+--- | --- | ---
+Mindy Setham | Sybill Gribonval | Julien Normand
 
-## 5. Difficultés rencontrées
+#### Objectifs du sprint
+Nos objectifs de la semaine :
+  * Gestion d'un firewall Pfsense
+  * Mise en place des fichiers réseaux pour les utilisateurs
+  * Mise en place d'une supervision de l'infrastructure réseau avec **PRTG**
+  * Synchronisation du fichier utilisateurs dans l'AD
+
+
+## 4. Présentation finale
+
+## 5. Difficultées rencontrées
 
 ## 6. Solutions trouvées
 
