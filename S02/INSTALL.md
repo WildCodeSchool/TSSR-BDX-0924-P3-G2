@@ -33,7 +33,7 @@ Gestion manuelle ou automatique par script PowerShell ?
 Gestion manuelle ou automatique par script PowerShell ?
 
 ### d) Intégration des utilisateurs
-Le client nous a remis la liste des utilisateurs, que vous retrouverez *ici* (Ressources/s06_EcoTechSolutions.xlsx). Avec ce fichier, nous allons pouvoir :
+Le client nous a remis la liste des utilisateurs, que vous retrouverez *ici* ([Ressources/Fichiers utilisateur.pdf](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Fichiers%20utilisateur.pdf)). Avec ce fichier, nous allons pouvoir :
   * Créer les comptes utilisateurs,
   * Placer ces comptes dans les groupes correspondant,
   * Placer ces comptes dans les OU de départements/services,
