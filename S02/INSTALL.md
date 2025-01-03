@@ -2,7 +2,7 @@
 
 ## 1. Mise en place des serveurs
 
-### a) Serveur Windows Server 2022 GUI
+### a) Serveur Windows Server 2022  GUI 
 Ce serveur aura pour rôle :
   * AD-DS
   * DHCP
