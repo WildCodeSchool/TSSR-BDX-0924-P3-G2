@@ -5,19 +5,16 @@ Nous avons donc du réinstaller complètement 2 Serveurs Windows :
 - 1 VM DC01 (pour Contrôleur de Domaine 1)
     - **Hostname** : AQUAMAN
     - **OS :** *Windows Server 2022 Desktop*
-    - **Propriétaire :** *Groupe 2 (EcoTetch Solutions)*
     - **Login :** *Administrator*
     - **Mot de passe :** *Azerty1**
     - **Usage principal :** *Serveur Domain Controller 1*
     - **@IP/CIDR :** *10.10.7.210/16 (vmbr1055)*
-    - **Services/Rôles/Logiciels :**     - *Rôle AD-DS*
-- *DNS*
-- *DHCP*
-
-- *Rôle AD-DS*
-- *DNS*
-- *DHCP*
-
-## Source
-
--*Template-Windows-Server-2022*
+    - **Services/Rôles/Logiciels :** *Rôle AD-DS, DNS, DHCP.*
+- 1 VM DC02
+    - **Hostname** : ZATANNA
+    - **OS :** *Windows Server 2022 Core*
+    - **Login :** *Administrator*
+    - **Mot de passe :** *Azerty1**
+    - **Usage principal :** *Serveur Domain Controller 1*
+    - **@IP/CIDR :** *10.10.7.211/16 (vmbr1055)*
+    - **Services/Rôles/Logiciels :** *Rôle AD-DS, DNS, DHCP.*
