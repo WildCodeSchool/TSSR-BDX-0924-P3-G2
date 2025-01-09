@@ -1,41 +1,19 @@
-# Guide pour l'administrateur
+# Guide d'installation pour l'administrateur
+## I. Généralités
+Pour cette semaine, nous avons :
+  - Améliorer l'Active Directory en intégrant les utilisateurs dans l'Active Directory
+  - Intégrer le serveur Debian sur le domaine de l'Active Directory
 
-## 1. Mise en place des serveurs
+## II. L'Active Directory & les Utilisateurs
+Cette semaine, nous avons reçu la liste des utilisateurs que trouverez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/utilisateur.pdf)
+Pour pouvoir l'intégrer dans notre Active Directory, nous avons créer un script :
+```powershell
 
-### a) Serveur Windows Server 2022  GUI 
-Ce serveur aura pour rôle :
-  * AD-DS
-  * DHCP
-  * DNS
-
-Son compte par défaut est `Administrator` et son mot de passe `motdepasse`.
-
-### b) Serveur Windows Serveur 2022 Core
-Ce serveur aura pour rôle :
-  * AD-DS
-
-Son compte par défaut est `Administrator` et son mot de passe `motdepasse`.
-
-### c) Serveur Linux Debian
-Ce serveur sera soit en VM soit en CT (en ligne de commande seulement), il devra être sur le domaine AD-DS et accessible en SSH seulement par un groupe d'administrateur du domaine.
-Gestion manuelle ou automatique par script Bash ?
-
-## 2. Mise en place du AD-DS et de son arborescence
-
-### a) Création d'un domaine AD
-Les deux serveurs Windows sont des *Domain Controler* du domaine et ont une réplication complètement gérée.  
-C'est quoi une *réplication* ?
-
-### b) Création des OU
-Gestion manuelle ou automatique par script PowerShell ?
-
-### c) Création des groupes
-Gestion manuelle ou automatique par script PowerShell ?
-
-### d) Intégration des utilisateurs
-Le client nous a remis la liste des utilisateurs, que vous retrouverez *ici* ([Ressources/Fichiers utilisateur.pdf](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Fichiers%20utilisateur.pdf)). Avec ce fichier, nous allons pouvoir :
-  * Créer les comptes utilisateurs,
-  * Placer ces comptes dans les groupes correspondant,
-  * Placer ces comptes dans les OU de départements/services,
-  * Mettre en place une gestion des managers **(C'est quoi ??)**
-Gestion manuelle ou automatique par script PowerShell ?
+```
+Ce script, nous permettra de :
+  - Créer les comptes utilisateurs
+  - Placer les comptes dans les groupes correspondant
+  - Placer les comptes dans les OU correspondants
+  - Mettre en place une gestion des managers
+## III. Serveur Debian sur le domaine de l'Active Directory
+Une fois que le domaine et l'Active Directory bien établie, nous avons connecté notre serveur Debian dessus.
