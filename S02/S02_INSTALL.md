@@ -132,7 +132,7 @@ Ensuite il faudra cliquer sur "Yes to All" afin de rendre les fichier ps1 exécu
 
 Ensuite on exécute le script :  
 
-<P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_powershell_2_script_exec.png" width=600></P>  
+<P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_powershell_2_script_exec.png" width=400></P>  
 
 On remarque qu'on a bien confirmation de la création des OU, des sous OU et ensuite des Utilisateurs.  
 Nous vérifions ensuite dans la console du Server Manager avec l'outil Active Directory Users and Computers qui va nous permettre de vérifier la bonne arborescence de notre domaine : 
