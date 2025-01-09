@@ -1,8 +1,8 @@
 # Guide d'installation pour l'administrateur
 ## I. Généralités
 Pour cette semaine, nous avons :
-  - Améliorer l'Active Directory en intégrant les utilisateurs dans l'Active Directory
-  - Intégrer le serveur Debian sur le domaine de l'Active Directory
+  - Amélioré l'Active Directory en intégrant les utilisateurs dans l'Active Directory
+  - Intégrer le serveur DC02 (Windows server 2022 Core) sur le domaine de l'Active Directory
 
 ## II. L'Active Directory & les Utilisateurs
 Cette semaine, nous avons reçu la liste des utilisateurs que trouverez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/utilisateur.pdf)
