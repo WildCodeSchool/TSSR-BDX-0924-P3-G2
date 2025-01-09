@@ -17,4 +17,4 @@ Nous avons donc du réinstaller complètement 2 Serveurs Windows :
     - **Mot de passe :** *Azerty1**
     - **Usage principal :** *Serveur Domain Controller 1*
     - **@IP/CIDR :** *10.10.7.211/16 (vmbr1055)*
-    - **Services/Rôles/Logiciels :** *Rôle AD-DS, DNS, DHCP.*
+    - **Services/Rôles/Logiciels :** *Les mêmes que DC01 car ils seront répliqués*
