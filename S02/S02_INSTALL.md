@@ -136,7 +136,7 @@ Ensuite on exécute le script :
 
 On remarque qu'on a bien confirmation de la création des OU, des sous OU et ensuite des Utilisateurs.  
 Nous vérifions ensuite dans la console du Server Manager avec l'outil Active Directory Users and Computers qui va nous permettre de vérifier la bonne arborescence de notre domaine : 
-<P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_arbo_AD_1.png" width=500>&nbsp &nbsp<IMG src="../Ressources/Images/Captures DC01/capture_arbo_AD_2.png" width=500></P>  
+<P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_arbo_AD_1.png" width=450>&nbsp&nbsp&nbsp&nbsp<IMG src="../Ressources/Images/Captures DC01/capture_arbo_AD_2.png" width=450></P>  
 
 L'arborescence est bonne et les utilisateurs ont bien leur attibuts renseignés.  
 
