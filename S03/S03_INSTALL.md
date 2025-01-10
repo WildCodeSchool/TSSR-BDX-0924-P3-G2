@@ -134,3 +134,5 @@ Ici vous pouvez vous connecter avec différents comptes :
   - Postonly
 	  - Login : `post-only`
 	  - Mot de passe : `postonly`
+
+Pour une meilleur utilisation de GLPI, allez sur la documentation d'utilisateur en cliquant [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S03/S03_USER_GUIDE.md).
