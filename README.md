@@ -55,7 +55,7 @@ Nos objectifs de la semaine :
   * Mise en place du AD-DS et de son arborescence
 
 
-### c) Sprint 3 à 5
+### c) Sprint 3
 #### Membres du groupe et leurs rôles
 Product Owner | Scrum Master | TSSR
 --- | --- | ---
@@ -66,11 +66,10 @@ Nos objectifs de la semaine :
   * Restructuration du réseau avec les différents sous-réseaux :
     * Réseau WAN
     * Réseau LAN
-    * Réseau CORE
     * Réseau DMZ
   * Intégration des utilisateurs
 
-  * ### d) Sprint 6
+  * ### d) Sprint 4 à 6
 #### Membres du groupe et leurs rôles
 Product Owner | Scrum Master | TSSR
 --- | --- | ---
@@ -79,9 +78,9 @@ Mindy Setham | Sybill Gribonval | Julien Normand
 #### Objectifs du sprint
 Nos objectifs de la semaine :
   * Gestion d'un firewall Pfsense
-  * Mise en place des fichiers réseaux pour les utilisateurs
-  * Mise en place d'une supervision de l'infrastructure réseau avec **PRTG**
-  * Synchronisation du fichier utilisateurs dans l'AD
+  * Mise en place des dossiers réseaux pour les utilisateurs
+  * Mise en place d'une supervision de l'infrastructure réseau avec [PRTG](https://www.paessler.com)
+  * Synchronisation du fichier utilisateurs dans l'Active Directory
 
 
 ## 4. Présentation finale
