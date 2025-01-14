@@ -10,6 +10,22 @@ Pour cette semaine, nous avons :
 
 ### 2) Standard
 
+Pour configurer la GPO standard pour mettre CHrome en navigateur par défaut, il faut:
+
+Dans un premier temps se rendre sur le site: https://chromeenterprise.google/download/#download, et filtrer sur "Windows" en bas de l'écran
+
+![9](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/Capture%20d'%C3%A9cran%202025-01-10%20105154.png)
+
+Ensuite, cliquer sur le premier onglet "Quick start guide for Windows", pour ouvrir le guide de téléchargements des fichiers qui seront nécessaires à la configuration.
+
+![10](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/Capture%20d'%C3%A9cran%202025-01-10%20105215.png)
+
+
+Ensuite, il faut suivre l'installation en téléchargeant fichier "default application association", que l'on voit tout en bas 
+
+![11](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/Capture%20d'%C3%A9cran%202025-01-10%20105238.png)
+
+
 ## III. Gestion de parc GLPI
 ### 1) Prérequis
 Il faut avoir :
