@@ -232,4 +232,7 @@ Write-Host "Nombre de comptes désactivés : $nombreDesactives" -ForegroundColor
 
 A l'exécution on a un retour sur le powershell qui ressemble à ça :  
 
-  
+ <P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_powershell_3_script_exec_new.png" width=700></P>   <BR>  
+ <BR>
+ On remarque que l'arborescence de l'AD est bonne aussi et que les espaces ainsi que les accents ont disparus.<BR><BR><BR>
+ <P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_arbo_AD_new.png" width=700></P>   <BR>  
