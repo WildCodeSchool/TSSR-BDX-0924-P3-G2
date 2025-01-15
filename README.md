@@ -39,7 +39,6 @@ Nos objectifs de la semaine :
   * Liste des serveurs et des matériels nécessaires à l'élaboration de la future infrastructure réseau
   * Mettre en place une nomenclature de nom
 
-
 ### b) Sprint 2
 #### Membres du groupe et leurs rôles
 Product Owner | Scrum Master | TSSR
@@ -53,7 +52,6 @@ Nos objectifs de la semaine :
     * Serveur Windows CORE
     * Serveur Debian
   * Mise en place du AD-DS et de son arborescence
-
 
 ### c) Sprint 3
 #### Membres du groupe et leurs rôles
@@ -69,7 +67,7 @@ Nos objectifs de la semaine :
     * Réseau DMZ
   * Intégration des utilisateurs
 
-  * ### d) Sprint 4 à 6
+### d) Sprint 4 à 6
 #### Membres du groupe et leurs rôles
 Product Owner | Scrum Master | TSSR
 --- | --- | ---
@@ -82,7 +80,7 @@ Nos objectifs de la semaine :
   * Mise en place d'une supervision de l'infrastructure réseau avec [PRTG](https://www.paessler.com)
   * Synchronisation du fichier utilisateurs dans l'Active Directory
 
-### a) Sprint 7
+### e) Sprint 7
 #### Membres du groupe et leurs rôles
 Product Owner | Scrum Master | TSSR
 --- | --- | ---
