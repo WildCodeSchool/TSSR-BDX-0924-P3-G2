@@ -144,3 +144,109 @@ L'arborescence est bonne et les utilisateurs ont bien leur attibuts renseignés.
 
 ## III. Serveur Debian sur le domaine de l'Active Directory
 Une fois que le domaine et l'Active Directory bien établie, nous avons connecté notre serveur Debian dessus.
+### a. Prérequis
+#### Mettre à jour le serveur
+```bash
+sudo apt-get update && sudo apt-get upgrade -y
+```
+#### Configuration réseau
+- Assurez vous que le serveur Debian peut communiquer avec le contrôleur de domaine Windows.
+- Configurez le serveur Debian pour utiliser le DNS du serveur AD pour la résolution des noms
+```bash
+# Vérification du fichier /etc/resolv.conf
+nameserver 10.10.7.210 # Adresse du serveur Windows
+
+# Testez la résolution DNS
+nslookup ecotechsolutions.lan
+
+# Ce qui donne
+Server :  10.10.7.210
+Address : 10.10.7.210#53
+
+Name : ecotechsolutions.lan
+Address : 10.10.7.210
+```
+#### Heure synchronisée
+- Assurez vous que l'heure du serveur Debian soit synchronisée avec celle du contrôleur de domaine, **c'est important pour Kerberos**.
+```bash
+# Installez chrony
+sudo apt install chrony -y
+# Modifiez le fichier /etc/chrony/chrony.conf pour ajouter l'adresse IP du serveur AD comme serveur NTP
+server 10.10.7.210 iburst
+# Redémarrez le service
+sudo systemctl restart chrony
+sudo systemctl status chrony
+# Vérifiez la synchronisation
+timedatectl
+```
+- Avec cette dernière commande, la ligne `System clock synchronized` passera en **yes**.
+### b.  Serveur Debian
+#### Installation des paquets nécessaires
+```bash
+sudo apt install -y realmd sssd sssd-tools adcli samba-common krb5-user packagekit
+```
+- `realmd` : détecte et joint les domaines
+- `sssd`: gère l'authentification via les services du domaines
+- `krb5-user` : configure **Kerberos** pour l'authentification
+- `adcli`: permet de joindre le domaine AD
+- `samba`: pour les fonctionnalités SMB nécessaires
+#### Configuration de Kerberos
+Pendant l'installation du paquet `krb5-user`, vous devrez entrer le **nom du domaine** (exemple : ECOTECHSOLUTIONS.LAN).
+### Rejoindre le domaine
+```bash
+# Rechercher le domaine
+sudo realm discover ecotechsolutions.lan
+
+# Joindre le serveur au domaine
+sudo realm join --user=Administrator ecotechsolutions.lan
+# Le mot de passe à rentrer est celui du compte Administrateur de votre serveur Windows
+
+# Vérifiez que la machine est bien ajoutée
+sudo realm list
+```
+#### Configuration du SSSD
+```bash
+# Commande pour modifier le fichier
+sudo nano /etc/sssd/sssd.conf
+
+# Modifier le fichier comme suit 
+[sssd] 
+services = nss, pam 
+domains = ecotechsolutions.lan
+
+[domain/mondomaine.local] 
+ad_domain = ecotechsolutions.lan 
+krb5_realm = ECOTECHSOLUTIONS.LAN 
+realmd_tags = manages-system joined-with-adcli 
+cache_credentials = True 
+id_provider = ad 
+access_provider = ad
+
+# Changez les permissions du fichier
+sudo chmod 600 /etc/sssd/sssd.conf
+sudo systemctl restart sssd
+sudo systemctl status sssd
+```
+#### Configuration des utilisateurs AD pour se connecter
+```bash
+# Modifiez le fichier /etc/pam.d/common-session
+session required pam_mkhomedir.so skel=/etc/skel umask=0077
+```
+- `session`, indique que la directive s'applique à la phase de session *utilisateur* lorsqu'il se connecte au système
+- `required`, indique que l'exécution de ce module est obligatoire pour la réussite de la session.
+- `pam_mkhomedir.so`, indique qu'il s'agit d'un module PAM spécifique qui permet de créer automatiquement le répertoire personnel d'un utilisateur s'il n'existe pas.
+- `skel=/etc/skel`, spécifie que le contenu du répertoire doit être copié dans le nouveau répertoire personnel de l'utilisateur.
+- `umask=0077`, définit les permissions par défaut pour les fichiers et répertoires crées dans le répertoire personnel :
+	- **0** : Pas de restriction sur l'utilisateur propriétaire
+	- **7** : Retirer tous les droits (lecture, écriture, exécution) pour le groupe
+	- **7** : Retirer tous les droits (lecture, écriture, exécution) pour les autres utilisateurs
+	- En résumé, cela rend le répertoire personnel accessible uniquement par son propriétaire
+#### Test & validation
+```bash
+# Test de connexion utilisateur avec un utilisateur AD
+su - "utilisateurAD"@ecotechsolutions.lan
+# Lister les utilisateurs et groupes du domaine 
+id utilisateurAD@ecotechsolutions.lan
+getent passwd
+getent group
+```
