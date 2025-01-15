@@ -104,11 +104,9 @@ Pour le plan d'adressage réseau, nous sommes parti sur la base d'un tableau qui
 | Nom du serveur / ordinateur | Adresse IP  | Passerelle    | Broadcast     | Réseau    | Masque |
 | --------------------------- | ----------- | ------------- | ------------- | --------- | ------ |
 | Réseau client               | DHCP        | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
-| Administrateur              | 10.10.7.1   | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
 | Windows Serveur GUI         | 10.10.7.10  | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
 | Windows Serveur Core        | 10.10.7.11  | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
-| Debian Server               | 10.10.7.203 | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
-| Technicien                  | 10.10.7.2   | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
+| Debian Server               | 10.10.7.12  | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
 
 ### 2) Schéma réseau
 ![reseau](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/Réseau/reseau_ecotech.png)
