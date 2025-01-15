@@ -105,8 +105,8 @@ Pour le plan d'adressage réseau, nous sommes parti sur la base d'un tableau qui
 | --------------------------- | ----------- | ------------- | ------------- | --------- | ------ |
 | Réseau client               | DHCP        | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
 | Administrateur              | 10.10.7.1   | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
-| Windows Serveur GUI         | 10.10.7.210 | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
-| Windows Serveur Core        | 10.10.7.211 | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
+| Windows Serveur GUI         | 10.10.7.10  | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
+| Windows Serveur Core        | 10.10.7.11  | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
 | Debian Server               | 10.10.7.203 | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
 | Technicien                  | 10.10.7.2   | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
 
@@ -121,7 +121,7 @@ Ce serveur est un `domain controler`, qui aura pour fonction :
   - DNS
 
 Il sera configuré de la façon suivante :
-  - Adresse IP : `10.10.7.210/16`
+  - Adresse IP : `10.10.7.10/16`
   - Login : `Administrator`
   - Mot de passe : `Azerty1*`
   - Hostname : `Aquaman`
@@ -130,7 +130,7 @@ Ce serveur est `domain controler`, qui aura pour fonction :
   - AD-DS
 
 Il sera configuré de la façon suivante :
-  - Adresse IP : `10.10.7.211/16`
+  - Adresse IP : `10.10.7.11/16`
   - Login : `Administrator`
   - Mot de passe : `Azerty1*`
   - Hostname : `Zatanna`
