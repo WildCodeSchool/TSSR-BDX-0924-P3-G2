@@ -21,7 +21,7 @@ Le client souhaite modernier son infrastructure pour avoir :
   * Une meilleure gestion du réseau
 
 C'est pourquoi, nous allons restructurer toute l'infrastructure du client avec :
-  * Des sous-réseaus (LAN, CORE, DMZ)
+  * Des sous-réseaus (LAN, DMZ)
   * Des machines dédiées (Serveur Windows, Serveur Web, ...)
   * Implémentation d'équipements réseau (routeur, switch, ...)
 
@@ -82,6 +82,15 @@ Nos objectifs de la semaine :
   * Mise en place d'une supervision de l'infrastructure réseau avec [PRTG](https://www.paessler.com)
   * Synchronisation du fichier utilisateurs dans l'Active Directory
 
+### a) Sprint 7
+#### Membres du groupe et leurs rôles
+Product Owner | Scrum Master | TSSR
+--- | --- | ---
+Sybill Gribonval | Scrum Master | Mindy Setham
+
+#### Objectifs du sprint
+Nos objectifs de la semaine :
+  * Mettre en place un serveur de messagerie
 
 ## 4. Présentation finale
 
