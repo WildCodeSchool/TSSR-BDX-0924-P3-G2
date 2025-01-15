@@ -86,7 +86,7 @@ Nos objectifs de la semaine :
 #### Membres du groupe et leurs rôles
 Product Owner | Scrum Master | TSSR
 --- | --- | ---
-Sybill Gribonval | Scrum Master | Mindy Setham
+Sybill Gribonval | Julien Normand| Mindy Setham
 
 #### Objectifs du sprint
 Nos objectifs de la semaine :
