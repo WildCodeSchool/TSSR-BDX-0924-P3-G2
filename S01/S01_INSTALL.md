@@ -114,16 +114,15 @@ Le nom du domaine pour notre client sera `ecotech-solutions.lan`.
 ### 1) Routeur principal
 Suite aux données reçu, nous avons établis le futur réseau de l'entreprise. **Attention**, il peut être amenée à bouger. L'entreprise a un routeur avec pare-feu, ses interfaces sont :
 - WAN : Permet de pouvoir accéder à Internet
-    - Adresse IP : _10.0.0.3/29_
+    - Adresse réseau : _10.0.0.3/29_
     - Passerelle : _10.0.0.1_
 - DMZ : Permet de séparer et isoler des serveurs afin de renforcer la sécurité en limitant l'accès direct aux systèmes internes
-    - Adresse IP : _10.12.0.0_
-    - Broadcast : _10.12.255.254_
-    - Réseau : _10.12.0.0./16_
+    - Adresse réseau : _10.12.0.0/16_
+    - Passerelle : _10.12.255.254_
 - LAN : Réseau interne de l'entreprise pour les utilisateurs
-    - Adresse IP : _10.10.0.0_
-    - Broadcast : _10.10.255.254_
-    - Réseau : _10.10.0.0./16_
+    - Adresse réseau : _10.10.0.0/16_
+    - Passerelle : _10.10.255.254_
+
 ### 2) Plan d'adressage
 Pour le plan d'adressage réseau, nous sommes parti sur la base d'un tableau qui sera rempli à chaque serveur / ordinateur rajouter sur le réseau.
 #### a) DMZ
