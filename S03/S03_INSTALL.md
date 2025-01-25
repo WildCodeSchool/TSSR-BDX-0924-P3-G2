@@ -27,24 +27,24 @@ Ensuite, il faut suivre l'installation en téléchargeant fichier "default appli
 
 
 ## III. Gestion de parc GLPI
-### 1) Prérequis
+### a. Prérequis
 Il faut avoir :
   - Un serveur Debian (`Shazam`) avec le compte :
 	  - Login : `root`
 	  - Mot de passe : `Azerty1*`
-	  - Adresse ip : `10.10.7.203`
-  - Une machine administrateur dite local (`DrManhattan`) avec le compte :
+	  - Adresse ip : `10.10.7.12`
+  - Une machine administrateur dite local (`Atlas`) avec le compte :
 	  - Login : `wilder`
 	  - Mot de passer : `Azerty1*`
-	  - Adresse ip : `10.10.7.1
-### 2) Serveur Debian `Shazam`
+	  - Adresse ip : `10.10.8.8`
+### b. Serveur Debian `Shazam`
 
-#### a) Mettre à jours le serveur
+#### Mettre à jours le serveur
 ```bash
 apt update && apt upgrade -y
 ```
 
-#### b) Installation des paquets
+#### Installation des paquets
 ```bash
 # Installation du paquet Apache
 apt install apache2 -y
@@ -56,6 +56,9 @@ apt install mariadbd-server -y
 
 # Installation des paquets PHP
 apt install ca-certificates apt-transport-https software-properties-common lsb-release curl lsb-release -y
+
+# Installation des paquets PHP pour la synchronisation LDAP
+sudo apt-get install php-ldap
 
 # Ajout du dépôt pour PHP 8.1 :
 wget -qO /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
@@ -69,7 +72,7 @@ apt install php8.1 libapache2-mod-php -y
 apt install php8.1-{ldap,imap,apcu,xmlrpc,curl,common,gd,mbstring,mysql,xml,intl,zip,bz2} -y
 ```
 
-#### c) Configuration de MariaDB
+#### Configuration de MariaDB
 Maintenant, installez le paquet MariaDB avec la commande `mysql_secure_installation`. A part `Change the root password?`, répondre `Y` à toutes les questions.
 Pour le mot de passer `root`, nous avons mis : `Azerty1*`
 
@@ -84,7 +87,7 @@ flush privileges
 quit
 ```
 
-#### d) Importation des ressources GitHub
+#### Importation des ressources GitHub
 ```bash
 # Téléchargement des sources
 wget https://github.com/glpi-project/glpi/releases/download/10.0.15/glpi-10.0.15.tgz
@@ -106,7 +109,7 @@ chown -R www-data:www-data /var/www/html/glpi.lab.lan
 chmod -R 775 /var/www/html/glpi.lab.lan
 ```
 
-#### e) Configuration de PHP
+#### Configuration de PHP
 Editez le fichier `/etc/php/8.1/apache2/php.ini` avec nano, et modifiez les paramètres suivants :
 ```bash
 memory_limit = 64M # <= à changer
@@ -118,9 +121,9 @@ session.use_trans_sid = 0
 
 Maintenant, vous pouvez redémarrer le serveur pour appliquer tous les changements.
 
-### 3) Administrateur local `DrManhattan`
-#### a) Configuration de l'interface web
-Depuis un navigateur web, allez sur la page internet : `http://10.10.7.203/glpi.lab.lan`, vous arriverez sur cette page :
+### c. Administrateur local `Atlas`
+#### Configuration de l'interface web
+Depuis un navigateur web, allez sur la page internet : `http://10.10.7.12/glpi.lab.lan`, vous arriverez sur cette page :
 
 ![1](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/GLPI/1.png)
 Et sélectionnez la langue `Français`, puis cliquez sur `Ok >`. Puis vous arriverez sur une seconde page pour les *copyrigth* où vous pourrez cliquer sur `Continuer >`. 
@@ -132,23 +135,35 @@ Sur cette image, sélectionnez `Installer`. Puis remplissez la page d'après com
 
 Et cliquez sur `Continuer >`. Sur la page suivante, pensez à bien sélectionner la base de donnée **glpidb** puis cliquez sur `Continuer >` où une initialisation de la base de données sera effectuées. Une fois la base de donnée initialisée, cliquez sur `Continuer >` ou sur `Ok >` sur toutes les pages suivantes jusqu'à la fin de l'installation.
 
-#### b) Connexion à l'interface Web
-Pour vous connectez à GLPI, vous devez être sur cette page avec le lien `http://10.10.7.203/glpi.lab.lan` :
+#### Connexion à l'interface Web
+Pour vous connectez à GLPI, vous devez être sur cette page avec le lien `http://10.10.7.12/glpi.lab.lan` :
 
 ![8](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/GLPI/8.png)
 
-Ici vous pouvez vous connecter avec différents comptes :
-  - Administrateur
-	  - Login : `glpi`
-	  - Mot de passe : `glpi`
-  - Technicien
-	  - Login : `tech`
-	  - Mot de passe : `tech`
-  - Utilisateur
-	  - Login : `normal`
-	  - Mot de passe : `normal`
-  - Postonly
-	  - Login : `post-only`
-	  - Mot de passe : `postonly`
+Avec cette configuration, vous avez la possibilité de vous connecter sur ces comptes :
+- Administrateur (`glpi`/`glpi`)
+- Technicien (`tech`/`tech`)
+- Utilisateur (`normal`/`normal`)
+- Post-Only (`post-only`/`postonly`)
 
-Pour une meilleur utilisation de GLPI, allez sur la documentation d'utilisateur en cliquant [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S03/S03_USER_GUIDE.md).
+Pour le moment, nous utiliserons le compte Administrateur. Une fois connecté dessus, vous devrez :
+- Modifier le mot de passe de chacun des comptes ci-dessus,
+- Supprimer le fichier sur le serveur `Shazam` **/var/www/html/glpi.lab.lan/install/install.php**
+
+### d. Synchronisation avec l'Active Directory
+Sur l'interface web de GLPI, connecté sur le compte **Administrateur**, ouvrez le menu `Configuration` puis sélectionnez *Authentification > Annuaire LDAP > + Ajouter*. Dans **préconfiguration**, sélectionnez `Active Directory` puis configurez comme suit  et **sauvegarder** :
+![9](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/3b0cfda541b4c9a82c63b7ecb80d7b9137678254/Ressources/Images/GLPI/9.png)
+
+Une fois l'annuaire LDAP créé, allez dedans et sélectionnez `Tester` pour vérifier que la connexion à l'annuaire LDAP est fonctionnel. Si c'est le cas, vous aurez un message : ***Test réussi : Serveur principal Active Directory - ecotech-solutions.lan***.
+### e. Inclusion des objets AD
+Maintenant que la synchronisation est faite, nous allons pouvoir importer toute la base de donnée Active Directory (Utilisateurs, Groupes). Cela se fait toujours depuis l'interface web avec le compte administrateur et depuis le menu `Administration`.
+#### Ajout d'utilisateur
+Sélectionnez *Utilisateurs > Liaison annuaire LDAP > Importation de nouveaux utilisateurs > Mode expert*. Laissez les champs comme c'est et cliquez sur `Rechercher`, sélectionnez toute la liste et cliquez sur `Actions` pour importer comme suit :
+![10](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/3b0cfda541b4c9a82c63b7ecb80d7b9137678254/Ressources/Images/GLPI/10.png)
+Il ne reste plus qu'à envoyer ! Une fois fait et en retournant au menu *Utilisateurs*, vous verrez tous les nouveaux utilisateurs.
+
+Pour l'ajout d'utilisateur supplémentaire, allez sur la documentation utilisateur en cliquant [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/3b0cfda541b4c9a82c63b7ecb80d7b9137678254/S03/S03_USER_GUIDE.md).
+#### Ajout de groupe
+Sélectionnez *Groupes > Liaison Annuaire LDAP > Importation de nouveaux groupes*. Laissez les champs comme c'est et cliquez sur `Rechercher`, le reste est identique à l'importation des utilisateurs.
+***Attention***, le groupe doit être attribué à un utilisateurs pour qu'il soit importer dans GLPI.
+
