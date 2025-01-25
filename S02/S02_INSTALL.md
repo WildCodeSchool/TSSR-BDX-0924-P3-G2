@@ -157,7 +157,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 nameserver 10.10.7.10 # Adresse du serveur Windows
 
 # Testez la résolution DNS
-nslookup ecotechsolutions.lan
+nslookup ecotech-solutions.lan
 
 # Ce qui donne
 Server :  10.10.7.10
