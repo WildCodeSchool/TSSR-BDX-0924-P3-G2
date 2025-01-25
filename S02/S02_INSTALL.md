@@ -283,11 +283,11 @@ sudo nano /etc/sssd/sssd.conf
 # Modifier le fichier comme suit 
 [sssd] 
 services = nss, pam 
-domains = ecotechsolutions.lan
+domains = ecotech-solutions.lan
 
 [domain/mondomaine.local] 
-ad_domain = ecotechsolutions.lan 
-krb5_realm = ECOTECHSOLUTIONS.LAN 
+ad_domain = ecotech-solutions.lan 
+krb5_realm = ECOTECH-SOLUTIONS.LAN 
 realmd_tags = manages-system joined-with-adcli 
 cache_credentials = True 
 id_provider = ad 
