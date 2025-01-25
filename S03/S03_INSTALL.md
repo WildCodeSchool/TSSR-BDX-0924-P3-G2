@@ -155,6 +155,9 @@ Sur l'interface web de GLPI, connecté sur le compte **Administrateur**, ouvrez 
 ![9](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/3b0cfda541b4c9a82c63b7ecb80d7b9137678254/Ressources/Images/GLPI/9.png)
 
 Une fois l'annuaire LDAP créé, allez dedans et sélectionnez `Tester` pour vérifier que la connexion à l'annuaire LDAP est fonctionnel. Si c'est le cas, vous aurez un message : ***Test réussi : Serveur principal Active Directory - ecotech-solutions.lan***.
+
+Pour finir, allez dans le menu `Configuration`, puis sélectionnez *Générale > Configuration générale*. Allez tout en bas de la page pour décocher `Afficher la liste des sources d'authentification sur la page de login`, car avec la synchronisation LDAP nous avons maintenant deux sources de base de donnée. Cela évitera que des utilisateurs lambda prenne connaissance de la base de donnée administrateurs.
+
 ### e. Inclusion des objets AD
 Maintenant que la synchronisation est faite, nous allons pouvoir importer toute la base de donnée Active Directory (Utilisateurs, Groupes). Cela se fait toujours depuis l'interface web avec le compte administrateur et depuis le menu `Administration`.
 #### Ajout d'utilisateur
