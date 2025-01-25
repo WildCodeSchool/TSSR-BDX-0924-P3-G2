@@ -101,9 +101,9 @@ Sybill Gribonval | Julien Normand | Mindy Setham
 - Julien Normand
   - Mise en place d'un serveur de messagerie **iRedMail**
 - Mindy Setham
-  - 
+  - ...
 - Sybill Gribonval
-  - 
+  - ...
 
 ### e) Sprint 8
 #### Membres du groupe et leurs rôles
@@ -113,16 +113,28 @@ Julien Normand | Mindy Setham| Sybill Gribonval
 
 #### Objectifs du sprint
 - Julien Normand
-  - 
+  - ...
 - Mindy Setham
-  - 
+  - Partenariat d'entreprise avec BillU pour la mise un place d'un dossier partagé entre les utilisateurs des deux sociétés
+  - Mettre les rôles FSMO sur l'AD
 - Sybill Gribonval
   - Partenariat d'entreprise avec BillU pour la mise en place d'un VPN site-à-site.
 
 ## 4. Présentation finale
 
-## 5. Difficultées rencontrées
+## 5. Difficultés rencontrées
+### a) Mise en place d'un VPN site à site
+##### IPsec
+Avec l'administrateur de la société BillU, nous nous sommes mis d'accord pour partir sur le protocole IPsec qui est interne à nos deux routeurs pfSense. L'installation et la configuration des deux côté s'est passé sans problèmes. Cependant, lors des test seul la connexion de BillU vers EcotechSolutions a été une réussite.
+#### OpenVPN
+Suites au difficultés rencontrés avec IPsec, nous nous sommes mis d'accord pour partir sur le protocole OpenVPN qui est, lui aussi, interne à nos deux routeurs pfSense. L'installation et la configuration des deux côtés s'est passés sans problèmes. La connexion OpenVPN s'est aussi déroulés sans accroc. Cependant une fois connectés aux tunnels VPN, l'un comme l'autre ne pouvions communiquer avec des serveurs ou clients se trouvant sur les LAN respectifs.
 
 ## 6. Solutions trouvées
+### a) Mise en place d'un VPN site à site
+#### IPsec
+Après plusieurs tentatives de régler le soucis avec IPsec, notre formateur nous a conseillés de changer de protocole, car il est fort probable que ce soit le protocole IPsec qui amène des difficultés avec l'environnement Proxmox.
+Avec l'administrateur de la société de BillU, et avec le conseil de notre formateur, nous avons donc décidé de passé sur le protocole OpenVPN. 
+#### OpenVPN
+Après une recherche approfondie, nous avons remarqué que cela pouvait être du au règle de pare-feu que nous avions établis. Nous les avons modifiés, et avons refait une tentative de communication qui a été une réussite.
 
 ## 7. Améliorations possibles
