@@ -154,33 +154,18 @@ sudo apt-get update && sudo apt-get upgrade -y
 - Configurez le serveur Debian pour utiliser le DNS du serveur AD pour la résolution des noms
 ```bash
 # Vérification du fichier /etc/resolv.conf
-nameserver 10.10.7.210 # Adresse du serveur Windows
+nameserver 10.10.7.10 # Adresse du serveur Windows
 
 # Testez la résolution DNS
 nslookup ecotechsolutions.lan
 
 # Ce qui donne
-Server :  10.10.7.210
-Address : 10.10.7.210#53
+Server :  10.10.7.10
+Address : 10.10.7.10#53
 
 Name : ecotechsolutions.lan
-Address : 10.10.7.210
+Address : 10.10.7.10
 ```
-#### Heure synchronisée
-- Assurez vous que l'heure du serveur Debian soit synchronisée avec celle du contrôleur de domaine, **c'est important pour Kerberos**.
-```bash
-# Installez chrony
-sudo apt install chrony -y
-# Modifiez le fichier /etc/chrony/chrony.conf pour ajouter l'adresse IP du serveur AD comme serveur NTP
-server 10.10.7.210 iburst
-# Redémarrez le service
-sudo systemctl restart chrony
-sudo systemctl status chrony
-# Vérifiez la synchronisation
-timedatectl
-```
-- Avec cette dernière commande, la ligne `System clock synchronized` passera en **yes**.
-### b.  Serveur Debian
 #### Installation des paquets nécessaires
 ```bash
 sudo apt install -y realmd sssd sssd-tools adcli samba-common krb5-user packagekit
@@ -191,14 +176,100 @@ sudo apt install -y realmd sssd sssd-tools adcli samba-common krb5-user packagek
 - `adcli`: permet de joindre le domaine AD
 - `samba`: pour les fonctionnalités SMB nécessaires
 #### Configuration de Kerberos
-Pendant l'installation du paquet `krb5-user`, vous devrez entrer le **nom du domaine** (exemple : ECOTECHSOLUTIONS.LAN).
+Pendant l'installation du paquet `krb5-user`, vous devrez entrer le **nom du domaine** (exemple : ECOTECH-SOLUTIONS.LAN). Si ce n'est pas le cas, il faudra modifier le fichier /etc/krb5.conf :
+```bash
+[libdefaults]
+default_realm = ECOTECH-SOLUTIONS.LAN
+
+# The following krb5.conf variables are only for MIT Kerberos.
+        kdc_timesync = 1
+        ccache_type = 4
+        forwardable = true
+        proxiable = true
+        rdns = false
+
+
+# The following libdefaults parameters are only for Heimdal Kerberos.
+        fcc-mit-ticketflags = true
+		udp_preference_limit = 0
+
+[realms]
+        ATHENA.MIT.EDU = {
+                kdc = kerberos.mit.edu
+                kdc = kerberos-1.mit.edu
+                kdc = kerberos-2.mit.edu:88
+                admin_server = kerberos.mit.edu
+                default_domain = mit.edu
+        }
+        ZONE.MIT.EDU = {
+                kdc = casio.mit.edu
+                kdc = seiko.mit.edu
+                admin_server = casio.mit.edu
+        }
+        CSAIL.MIT.EDU = {
+                admin_server = kerberos.csail.mit.edu
+                default_domain = csail.mit.edu
+        }
+        IHTFP.ORG = {
+                kdc = kerberos.ihtfp.org
+                admin_server = kerberos.ihtfp.org
+        }
+        1TS.ORG = {
+                kdc = kerberos.1ts.org
+                admin_server = kerberos.1ts.org
+        }
+        ANDREW.CMU.EDU = {
+                admin_server = kerberos.andrew.cmu.edu
+                default_domain = andrew.cmu.edu
+        }
+        CS.CMU.EDU = {
+                kdc = kerberos-1.srv.cs.cmu.edu
+                kdc = kerberos-2.srv.cs.cmu.edu
+                kdc = kerberos-3.srv.cs.cmu.edu
+                admin_server = kerberos.cs.cmu.edu
+        }
+        DEMENTIA.ORG = {
+                kdc = kerberos.dementix.org
+                kdc = kerberos2.dementix.org
+                admin_server = kerberos.dementix.org
+        }
+        stanford.edu = {
+                kdc = krb5auth1.stanford.edu
+                kdc = krb5auth2.stanford.edu
+                kdc = krb5auth3.stanford.edu
+                master_kdc = krb5auth1.stanford.edu
+                admin_server = krb5-admin.stanford.edu
+                default_domain = stanford.edu
+        }
+        UTORONTO.CA = {
+                kdc = kerberos1.utoronto.ca
+                kdc = kerberos2.utoronto.ca
+                kdc = kerberos3.utoronto.ca
+                admin_server = kerberos1.utoronto.ca
+                default_domain = utoronto.ca
+        }
+
+[domain_realm]
+        .mit.edu = ATHENA.MIT.EDU
+        mit.edu = ATHENA.MIT.EDU
+        .media.mit.edu = MEDIA-LAB.MIT.EDU
+        media.mit.edu = MEDIA-LAB.MIT.EDU
+        .csail.mit.edu = CSAIL.MIT.EDU
+        csail.mit.edu = CSAIL.MIT.EDU
+        .whoi.edu = ATHENA.MIT.EDU
+        whoi.edu = ATHENA.MIT.EDU
+        .stanford.edu = stanford.edu
+        .slac.stanford.edu = SLAC.STANFORD.EDU
+        .toronto.edu = UTORONTO.CA
+        .utoronto.ca = UTORONTO.CA
+```
 ### Rejoindre le domaine
 ```bash
 # Rechercher le domaine
-sudo realm discover ecotechsolutions.lan
+sudo realm discover ecotech-solutions.lan
 
 # Joindre le serveur au domaine
-sudo realm join --user=Administrator ecotechsolutions.lan
+sudo realm join --user=Administrator ecotech-solutions.lan
 # Le mot de passe à rentrer est celui du compte Administrateur de votre serveur Windows
 
 # Vérifiez que la machine est bien ajoutée
@@ -244,9 +315,10 @@ session required pam_mkhomedir.so skel=/etc/skel umask=0077
 #### Test & validation
 ```bash
 # Test de connexion utilisateur avec un utilisateur AD
-su - "utilisateurAD"@ecotechsolutions.lan
+su - "utilisateurAD"@ecotech-solutions.lan
 # Lister les utilisateurs et groupes du domaine 
-id utilisateurAD@ecotechsolutions.lan
+id utilisateurAD@ecotech-solutions.lan
 getent passwd
 getent group
 ```
+A savoir que l'*utilisateurAD* correspond à l'adresse mail de l'utilisateur.
