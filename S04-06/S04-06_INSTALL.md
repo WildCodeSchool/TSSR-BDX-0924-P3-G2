@@ -238,25 +238,69 @@ A l'exécution on a un retour sur le powershell qui ressemble à ça :
  <P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_arbo_AD_new.png" width=700></P>   <BR>  
 
 
-## AD - Configuration de règle de pare feu avec PFSense  
+## AD - Configuration de règle de Pare-feu avec PFSense  
 
-Pour pouvoir configurer quelques règles de filtrage sur notre routeur qui joue également le rôle de pare feu il fait s'identifier dessus via une autre machine par le biais d'un navigateur internet.  
-Pour ça j'ai choisi notre VM admin 1079 (G2-Admin-Ubuntu) qui possède l'ip 10.10.8.8 et le hostname "ubuntu". Je précise son hotname et son IP car je restreindrais l'accès à la console d'administration de PFsense à cette IP dans les règles du parefeu.  
+Pour pouvoir configurer quelques règles de filtrage sur notre routeur qui joue également le rôle de pare-feu il faut s'identifier dessus via une autre machine par le biais d'un navigateur internet.  
+Pour ça j'ai choisi notre VM admin 1079 (G2-Admin-Ubuntu) qui possède l'ip 10.10.8.8 et le hostname "ubuntu". Je précise son hotname et son IP car je restreindrais l'accès à la console d'administration de PFsense à cette IP dans les règles du pare-feu.  
 
-Une fois sur notre machine Ubuntu d'administration il faut ouvrie le navigateur internet et renseigner l'addresse IP de notre routeur PFSense dans la partie URL soit 10.10.255.254.
-L'a page de connexion login mot de passe s'ouvre alors et on y rentre les identifiants suivants :
+Une fois sur notre machine Ubuntu d'administration il faut ouvrir le navigateur internet et renseigner l'addresse IP de notre routeur PFSense dans la partie URL soit 10.10.255.254.
+L'a page de connexion login / mot de passe s'ouvre alors et on y rentre les identifiants suivants :
 - Login : Admin
 - Password : P0se!don
 
 <P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_1.png" width=700></P>   <BR>  
 
-Ensuite, afin d'éviter toute erreur de configuration on va activer les backup de restauration sur notre parefeu. C'est à dire qu'à chaque modification de configuration le routeur enregistrera automatiquement une sauvegarde qui nous permettra de revenir en arrière.  
-Pour ca il faut aller dans "services" puis cliquer sur "auto config backup".  
+Ensuite, afin d'éviter toute erreur de configuration on va activer les backups de restauration sur notre pare-feu. C'est à dire qu'à chaque modification de configuration le routeur enregistrera automatiquement une sauvegarde qui nous permettra de revenir en arrière.  
+Pour ça il faut aller dans "services" puis cliquer sur "auto config backup".  
 Ensuite on définit un mot de passe (j'ai mis le même que pour l'identification soit "P0se!don"), on coche "enable automatic configuration backup" et "autamaticly backup on every configuration change" et on enregistre avec "save" en bas de la page.  
   
 <P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_2.png" width=700></P>   <BR>  
 
-Maintenant que nous avons configuré un possible retour en arrière de manière simpliofiée on va pouvoir s'attaquer aux règles de pare-feu.  
+Maintenant que nous avons configuré un possible retour en arrière de manière simplifiée on va pouvoir s'attaquer aux règles de pare-feu.  
 Il faut pour ça aller dans "Firewall" puis "Rules".  
   
 <P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_3.png" width=700></P>   <BR>  
+
+Ensuite il faudra configurer les règles de filtrage sur chaque interfaces, la LAN (réseau privé de l'entreprise), la WAN (celle qui sort sur le net) et la DMZ (réseau entre le LAN et le WAN).  
+Positionnons-nous donc dans un premier temps sur la LAN (interface configurée sur tous nos PC clients de l'entreprise EcoTech).  
+
+Ensuite on va supprimer la règle qui autorise tout le traffic sur cette interface à toute ipV4 et celle à toute IPv6.  
+
+Après ça on va régler une première règle qui autorise le DNS, donc le port 53 en TCP/UDP sur le LAN :    
+
+On sélectionne donc la parie LAN :  
+
+<P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_4.png" width=300></P>   <BR>    
+
+Ensuite, dans Edit Firewall Rule on va sélectionner :
+- Action : Pass
+- Interface : LAN
+- Address Family : IPv4 + IPv6
+- Protocol : TCP/UDP
+
+   
+<P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_5.png" width=700></P>   <BR>  
+
+ Dans Sources :
+ - On sélectionne LAN subnets
+ - Onclique sur Advanced et on sélectionne source port range : DNS (53)
+Dans Destination :
+- On sélectionne Any
+- Destination port range : DNS (53)  
+Enfin dans extra :
+- On nomme cette règle pour savoir la repérer plus tard au besoin plus facilement. Dans mon cas je l'ai nommée "permission d'accès au DNS"
+  
+<P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_6.png" width=900></P>   <BR>  
+Puis on clique sur Save et ça nous ramène à la page des règles de l'interface LAN. Il faudra ensuite cliquer sur "Apply changes" pour que ces filtres soient pris en compte.  
+
+Pour les prochains filtres on procèdera de la même manière. J'applique pour la suite les filtres suivants :
+- Autorisation à tous les PC du LAN à accéder au web en HTTP (port 80)
+- Autorisation à tous les PC du LAN à accéder au web en HTTPS  (port 443)
+- Autorisation à tous les PC du LAN à accéder au FTP  (TCP port 21)
+- Autorisation à tous les PC du LAN à utiliser le SMTP  (TCP port 25)
+- Autorisation à tous les PC du LAN à utiliser le POP3  (TCP port 110)
+- Autorisation à tous les PC du LAN à utiliser le IMAP  (TCP port 143)  
+- Ensuite on bloque tout le reste en appliquant à la fin un Deny All, ainsi seul les autorisations définies seront autorisées.
+  
+On obtient donc la configuration suivante :  
+<P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_7.png" width=900></P>   <BR>  
