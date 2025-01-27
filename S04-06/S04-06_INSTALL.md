@@ -236,3 +236,27 @@ A l'exécution on a un retour sur le powershell qui ressemble à ça :
  <BR>
  On remarque que l'arborescence de l'AD est bonne aussi et que les espaces ainsi que les accents ont disparus.<BR><BR><BR>
  <P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_arbo_AD_new.png" width=700></P>   <BR>  
+
+
+## AD - Configuration de règle de pare feu avec PFSense  
+
+Pour pouvoir configurer quelques règles de filtrage sur notre routeur qui joue également le rôle de pare feu il fait s'identifier dessus via une autre machine par le biais d'un navigateur internet.  
+Pour ça j'ai choisi notre VM admin 1079 (G2-Admin-Ubuntu) qui possède l'ip 10.10.8.8 et le hostname "ubuntu". Je précise son hotname et son IP car je restreindrais l'accès à la console d'administration de PFsense à cette IP dans les règles du parefeu.  
+
+Une fois sur notre machine Ubuntu d'administration il faut ouvrie le navigateur internet et renseigner l'addresse IP de notre routeur PFSense dans la partie URL soit 10.10.255.254.
+L'a page de connexion login mot de passe s'ouvre alors et on y rentre les identifiants suivants :
+- Login : Admin
+- Password : P0se!don
+
+<P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_1.png" width=700></P>   <BR>  
+
+Ensuite, afin d'éviter toute erreur de configuration on va activer les backup de restauration sur notre parefeu. C'est à dire qu'à chaque modification de configuration le routeur enregistrera automatiquement une sauvegarde qui nous permettra de revenir en arrière.  
+Pour ca il faut aller dans "services" puis cliquer sur "auto config backup".  
+Ensuite on définit un mot de passe (j'ai mis le même que pour l'identification soit "P0se!don"), on coche "enable automatic configuration backup" et "autamaticly backup on every configuration change" et on enregistre avec "save" en bas de la page.  
+  
+<P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_2.png" width=700></P>   <BR>  
+
+Maintenant que nous avons configuré un possible retour en arrière de manière simpliofiée on va pouvoir s'attaquer aux règles de pare-feu.  
+Il faut pour ça aller dans "Firewall" puis "Rules".  
+  
+<P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_3.png" width=700></P>   <BR>  
