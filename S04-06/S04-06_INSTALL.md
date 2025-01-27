@@ -1,5 +1,5 @@
-
-## AD - Nouveau fichier d'utilisateurs à synchroniser dans l'AD  
+   
+## 1. **AD - Nouveau fichier d'utilisateurs à synchroniser dans l'AD**  
 
 
 L'entreprise **ECOTECH Solutions** nous a fourni un nouveau fichier `S06_EcoTechSolutions.xlsx` contenant des changements concernant l'architecture de l'entreprise :  
@@ -238,7 +238,7 @@ A l'exécution on a un retour sur le powershell qui ressemble à ça :
  <P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_arbo_AD_new.png" width=700></P>   <BR>  
 
 
-## AD - Configuration de règle de Pare-feu avec PFSense  
+## Configuration de règle de Pare-feu avec PFSense  
 
 Pour pouvoir configurer quelques règles de filtrage sur notre routeur qui joue également le rôle de pare-feu il faut s'identifier dessus via une autre machine par le biais d'un navigateur internet.  
 Pour ça j'ai choisi notre VM admin 1079 (G2-Admin-Ubuntu) qui possède l'ip 10.10.8.8 et le hostname "ubuntu". Je précise son hotname et son IP car je restreindrais l'accès à la console d'administration de PFsense à cette IP dans les règles du pare-feu.  
