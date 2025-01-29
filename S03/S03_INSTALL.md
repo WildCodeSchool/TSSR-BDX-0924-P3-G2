@@ -1,10 +1,13 @@
 # Guide d'installation pour l'administrateur
 ## I. Généralités
 Pour cette semaine, nous avons :
-  - Créer des GPO
+  - Mise en place de GPO
 	  - Sécurité
 	  - Standard
-  - Mise en place d'un serveur de gestion de parc GLPI
+  - Mise en place d'un serveur de gestion de parc GLPI avec
+	  - Synchronisation AD
+	  - Inclusion des objets AD
+
 ## II. Les GPO
 ### 1) Sécurité
 
