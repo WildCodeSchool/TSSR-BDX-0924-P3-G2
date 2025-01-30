@@ -109,3 +109,19 @@ Apperçu de la page web (accessible via l'IP du serveur soit 10.12.0.2) :
 ![capture 3](../Ressources/Images/capture_wonderwoman_2.png)  
 
 Ensuite nous avons bien sûr configuré un nouvel email sur notre serveur de messagerie afin que le mail contact@ecotech-solutions.lan existe.  
+On est donc allé sur le webmail d'administration à partir d'une VM du LAN.  
+L'addresse d'administration étant `http://MORPHEUS.ecotech-solutions.lan/IredAdmin` ou bien `http://10.10.7.13/Iredadmin`.  
+Ensuite il faut simplement cliquer sur "Add" => "User" et renseigner les champs.  
+
+![capture 3](../Ressources/Images/capture_mail_1.png)    
+
+Ensuite depuis l'interface web, à partir d'une autre VM cliente, je me suis connecté avec mon mail j.normand@ecotech-solutions.lan.  
+Pour se connecter à l'interface webmail il suffit de rentrer dans la barre d'adresses du navigateur `http://10.10.7.13/mail` ou bien `http://MORPHEUS.ecotech-solutions.lan/mail`.  
+Puis, après avoir rentré mes identifiants j'ai envoyé un mail de test à contact@ecotech-solutions.lan.  
+  
+![capture 3](../Ressources/Images/capture_mail_2.png)    
+
+Enfin, depuis une autre VM encore j'ai pu constater que le nouveau mail fonctionnait bien !  
+
+![capture 3](../Ressources/Images/capture_mail_3.png)    
+    
