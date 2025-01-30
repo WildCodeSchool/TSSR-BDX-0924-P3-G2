@@ -1,7 +1,7 @@
 # Guide d'installation pour l'administrateur
 ## I. Généralités
 Pour cette semaine, nous avons :
-  - Amélioré l'Active Directory en intégrant les utilisateurs dans l'Active Directory ainsi quie les OU
+  - Amélioré l'Active Directory en intégrant les utilisateurs dans l'Active Directory ainsi que les OU
   - Intégrer le serveur DC02 (Windows server 2022 Core) sur le domaine de l'Active Directory
 
 ## II. L'Active Directory & les Utilisateurs
@@ -263,7 +263,7 @@ default_realm = ECOTECH-SOLUTIONS.LAN
         .toronto.edu = UTORONTO.CA
         .utoronto.ca = UTORONTO.CA
 ```
-### Rejoindre le domaine
+### b. Rejoindre le domaine
 ```bash
 # Rechercher le domaine
 sudo realm discover ecotech-solutions.lan
@@ -275,7 +275,7 @@ sudo realm join --user=Administrator ecotech-solutions.lan
 # Vérifiez que la machine est bien ajoutée
 sudo realm list
 ```
-#### Configuration du SSSD
+### c. Configuration du SSSD
 ```bash
 # Commande pour modifier le fichier
 sudo nano /etc/sssd/sssd.conf
@@ -298,7 +298,7 @@ sudo chmod 600 /etc/sssd/sssd.conf
 sudo systemctl restart sssd
 sudo systemctl status sssd
 ```
-#### Configuration des utilisateurs AD pour se connecter
+### d. Configuration des utilisateurs AD pour se connecter
 ```bash
 # Modifiez le fichier /etc/pam.d/common-session
 session required pam_mkhomedir.so skel=/etc/skel umask=0077
@@ -312,7 +312,7 @@ session required pam_mkhomedir.so skel=/etc/skel umask=0077
 	- **7** : Retirer tous les droits (lecture, écriture, exécution) pour le groupe
 	- **7** : Retirer tous les droits (lecture, écriture, exécution) pour les autres utilisateurs
 	- En résumé, cela rend le répertoire personnel accessible uniquement par son propriétaire
-#### Test & validation
+### e. Test & validation
 ```bash
 # Test de connexion utilisateur avec un utilisateur AD
 su - "utilisateurAD"@ecotech-solutions.lan
