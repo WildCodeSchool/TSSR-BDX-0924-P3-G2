@@ -119,6 +119,23 @@ Julien Normand | Mindy Setham| Sybill Gribonval
   - Mettre les rôles FSMO sur l'AD
 - Sybill Gribonval
   - Partenariat d'entreprise avec BillU pour la mise en place d'un VPN site-à-site.
+  - Mise en place d'un serveur de gestion de mise à jour WSUS
+
+### g. Sprint 9
+#### Membres du groupe et leurs rôles
+Product Owner | Scrum Master | TSSR
+--- | --- | ---
+Julien Normand | Mindy Setham| Sybill Gribonval
+
+#### Objectifs du sprint
+- Julien Normand
+  - Mise en place d'un serveur Web
+- Mindy Setham
+  - ...
+- Sybill Gribonval
+  - ...
+- Groupe
+  - Mise en place d'un PRA suite à une panne d'électricité
 
 ## IV. Présentation finale
 
