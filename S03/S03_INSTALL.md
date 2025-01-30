@@ -1,19 +1,18 @@
 # Guide d'installation pour l'administrateur
 ## I. Généralités
 Pour cette semaine, nous avons :
-  - Mise en place de GPO
+  - Mise en place de GPO :
 	  - Sécurité
 	  - Standard
   - Mise en place d'un serveur de gestion de parc GLPI avec
 	  - Synchronisation AD
 	  - Inclusion des objets AD
-
 ## II. Les GPO
-### 1) Sécurité
+### a. Sécurité
 
-### 2) Standard
+### b. Standard
 
-Pour configurer la GPO standard pour mettre CHrome en navigateur par défaut, il faut:
+Pour configurer la GPO standard pour mettre Chrome en navigateur par défaut, il faut:
 
 Dans un premier temps se rendre sur le site: https://chromeenterprise.google/download/#download, et filtrer sur "Windows" en bas de l'écran
 
@@ -124,7 +123,7 @@ session.use_trans_sid = 0
 
 Maintenant, vous pouvez redémarrer le serveur pour appliquer tous les changements.
 
-### c. Administrateur local `Atlas`
+### d. Administrateur local `Atlas`
 #### Configuration de l'interface web
 Depuis un navigateur web, allez sur la page internet : `http://10.10.7.12/glpi.lab.lan`, vous arriverez sur cette page :
 
@@ -153,15 +152,14 @@ Pour le moment, nous utiliserons le compte Administrateur. Une fois connecté de
 - Modifier le mot de passe de chacun des comptes ci-dessus,
 - Supprimer le fichier sur le serveur `Shazam` **/var/www/html/glpi.lab.lan/install/install.php**
 
-### d. Synchronisation avec l'Active Directory
+### e. Synchronisation avec l'Active Directory
 Sur l'interface web de GLPI, connecté sur le compte **Administrateur**, ouvrez le menu `Configuration` puis sélectionnez *Authentification > Annuaire LDAP > + Ajouter*. Dans **préconfiguration**, sélectionnez `Active Directory` puis configurez comme suit  et **sauvegarder** :
 ![9](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/3b0cfda541b4c9a82c63b7ecb80d7b9137678254/Ressources/Images/GLPI/9.png)
 
 Une fois l'annuaire LDAP créé, allez dedans et sélectionnez `Tester` pour vérifier que la connexion à l'annuaire LDAP est fonctionnel. Si c'est le cas, vous aurez un message : ***Test réussi : Serveur principal Active Directory - ecotech-solutions.lan***.
 
 Pour finir, allez dans le menu `Configuration`, puis sélectionnez *Générale > Configuration générale*. Allez tout en bas de la page pour décocher `Afficher la liste des sources d'authentification sur la page de login`, car avec la synchronisation LDAP nous avons maintenant deux sources de base de donnée. Cela évitera que des utilisateurs lambda prenne connaissance de la base de donnée administrateurs.
-
-### e. Inclusion des objets AD
+### f. Inclusion des objets AD
 Maintenant que la synchronisation est faite, nous allons pouvoir importer toute la base de donnée Active Directory (Utilisateurs, Groupes). Cela se fait toujours depuis l'interface web avec le compte administrateur et depuis le menu `Administration`.
 #### Ajout d'utilisateur
 Sélectionnez *Utilisateurs > Liaison annuaire LDAP > Importation de nouveaux utilisateurs > Mode expert*. Laissez les champs comme c'est et cliquez sur `Rechercher`, sélectionnez toute la liste et cliquez sur `Actions` pour importer comme suit :
