@@ -124,21 +124,27 @@ Suite aux données reçu, nous avons établis le futur réseau de l'entreprise.�
     - Adresse IP : _10.10.0.0_
     - Broadcast : _10.10.255.254_
     - Réseau : _10.10.0.0./16_
+
 ### b. Plan d'adressage
 Pour le plan d'adressage réseau, nous sommes parti sur la base d'un tableau qui sera rempli à chaque serveur / ordinateur rajouter sur le réseau.
+
 #### 1) DMZ
 
 | Nom du serveur / ordinateur | Adresse IP | Passerelle    | Broadcast     | Réseau    | Masque |
 | --------------------------- | ---------- | ------------- | ------------- | --------- | ------ |
 | Serveur Web                 | 10.12.0.1  | 10.12.255.254 | 10.12.255.255 | 10.12.0.0 | /16    |
+
 *Ceci est donnée à titre d'exemple pour des raisons de sécurité.*
+
 #### 2) LAN
 
 | Nom du serveur / ordinateur | Adresse IP | Passerelle    | Broadcast     | Réseau    | Masque |
 | --------------------------- | ---------- | ------------- | ------------- | --------- | ------ |
 | Réseau client               | DHCP       | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
 | Administrateur              | 10.10.8.8  | 10.10.255.254 | 10.10.255.255 | 10.12.0.0 | /16    |
+
 *Ceci est donnée à titre d'exemple pour des raisons de sécurité.*
+
 ### 3) Schéma réseau
 ![reseau](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/Réseau/reseauEcotechV2.png)
 
@@ -150,6 +156,8 @@ Pour la nomenclature de nom, nous sommes parti sur la base d'un tableau qui sera
 | ---- | ---- | --------------- | ------------------------ | ---------------- | -------- |
 | VM   | 10XX | G2-Routeur-PF01 | Routeur firewall PfSense | Sécurité réseau  |          |
 | VM   | 10XX | G2-Serveur-DCXX | Domain Controler         | AD-DS, DNS, DHCP | Superman |
+
 *Ceci est donnée à titre d'exemple pour des raisons de sécurité.*
+
 ### b. Les ordinateurs
 Les ordinateurs de chez Ecotech Solutions sont déjà nommés, vous pourrez trouver la liste [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/ordinateur.pdf).
