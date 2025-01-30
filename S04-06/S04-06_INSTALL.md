@@ -1,10 +1,11 @@
-### SOMMAIRE
-1.[Intégration des Utilisateurs dans l'AD](#1-ad---nouveau-fichier-dutilisateurs-à-synchroniser-dans-lad)  
-2.[Configuration du pare-feu](#2-configuration-de-règle-de-pare-feu-avec-pfsense)  
+## I. Généralités
+Pour cette semaine, nous avons :
+- Intégration des utilisateurs dans l'AD suite à un nouveau document
+- Configuration du routeur pfSense
+- Mise en place de dossiers partagés sur Aquaman
+- Mise en place d'un système de supervision PRTG sur le serveur Pantha
 
-## 1. **AD - Nouveau fichier d'utilisateurs à synchroniser dans l'AD**  
-
-
+## II. AD - Nouveau fichier d'utilisateurs à synchroniser dans l'AD  
 L'entreprise **ECOTECH Solutions** nous a fourni un nouveau fichier `S06_EcoTechSolutions.xlsx` contenant des changements concernant l'architecture de l'entreprise :  
  - Certains utilisateurs sont nouveaux dans l'entreprise
  - D'autres sont partis des effectifs
@@ -12,14 +13,12 @@ L'entreprise **ECOTECH Solutions** nous a fourni un nouveau fichier `S06_EcoTech
  - Le département "Finance et Comptabilité" change de nom et s'appelle désormais  "Direction financière"
  - Dans ce département, le service "Fiscalité" disparaît, et les collaborateurs intègrent le service "Finance"
  - Des collaborateurs se sont marié et ont un nouveau nom.
- - Une nouvelle responsable B2B, Iko Loubert, vient d'arriver dans la société. Elle gérera le service "B2B" du département "Service Commercial".
+ - Une nouvelle responsable B2B, Iko Loubert, vient d'arriver dans la société. Elle gérera le service "B2B" du département "Service Commercial".   
 
-       
-
-Afin de traiter au mieux l'organisation de l'AD, nous avons décidé de gérer tout celà par script.
+Afin de traiter au mieux l'organisation de l'AD, nous avons décidé de gérer tout cela par script.
 Nous avons donc converti le nouveau fichier `S06_EcoTechSolutions.xlsx` en `Utilisateurs-new.csv`.  
 Ensuite nous avons réalisé un Script qui va :
-- Importer la nouvelle liste des employés ainsi que leurs attributs et l'architecture des Départemens services
+- Importer la nouvelle liste des employés ainsi que leurs attributs et l'architecture des Départements services
 - Importer également toute la base AD présente dans notre serveur DC01
 - Mettre à jour les OU (par Département) et sous OU (par services)
 - Reformater la nomenclature de celles-ci en remplaçant les espaces par des tirets pour améliorer la compatibilité de l'AD.
@@ -233,49 +232,44 @@ Write-Host "`nRésumé des opérations :" -ForegroundColor Cyan
 Write-Host "Nombre de comptes désactivés : $nombreDesactives" -ForegroundColor Cyan
 ```
 
-A l'exécution on a un retour sur le powershell qui ressemble à ça :  
+Après exécution du script, nous avons ce retour sur le terminal :  
+<P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_powershell_3_script_exec_new.png" width=700></P><BR>
+Nous remarquons que l'arborescence de l'AD est bonne aussi et que les espaces ainsi que les accents ont disparus. <br>
+<P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_arbo_AD_new.png" width=700></P>   <BR>  
 
- <P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_powershell_3_script_exec_new.png" width=700></P>   <BR>  
- <BR>
- On remarque que l'arborescence de l'AD est bonne aussi et que les espaces ainsi que les accents ont disparus.<BR><BR><BR>
- <P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_arbo_AD_new.png" width=700></P>   <BR>  
+## III. Configuration du routeur pfSense  
 
+Pour pouvoir configurer quelques règles de filtrage sur notre routeur, qui joue également le rôle de pare-feu, il faut s'identifier dessus via une autre machine par le biais d'un navigateur internet.  
+Pour cela, j'ai choisi notre VM admin 1079 (G2-Admin-Ubuntu) qui possède l'ip 10.10.8.8 et le hostname `shazam`. Je précise son hostname et son IP car je restreindrais l'accès à la console d'administration de pfSense à cette IP dans les règles du pare-feu.  
 
-## 2. Configuration de règle de Pare-feu avec PFSense  
-
-Pour pouvoir configurer quelques règles de filtrage sur notre routeur qui joue également le rôle de pare-feu il faut s'identifier dessus via une autre machine par le biais d'un navigateur internet.  
-Pour ça j'ai choisi notre VM admin 1079 (G2-Admin-Ubuntu) qui possède l'ip 10.10.8.8 et le hostname "ubuntu". Je précise son hotname et son IP car je restreindrais l'accès à la console d'administration de PFsense à cette IP dans les règles du pare-feu.  
-
-Une fois sur notre machine Ubuntu d'administration il faut ouvrir le navigateur internet et renseigner l'addresse IP de notre routeur PFSense dans la partie URL soit 10.10.255.254.
-L'a page de connexion login / mot de passe s'ouvre alors et on y rentre les identifiants suivants :
+Une fois sur notre machine Ubuntu d'administration il faut ouvrir le navigateur internet et renseigner l'adresse IP de notre routeur pfSense dans la partie URL soit `http://10.10.255.254`.
+La page de connexion login / mot de passe s'ouvre alors et on y rentre les identifiants suivants :
 - Login : Admin
 - Password : P0se!don
 
 <P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_1.png" width=700></P>   <BR>  
 
-Ensuite, afin d'éviter toute erreur de configuration on va activer les backups de restauration sur notre pare-feu. C'est à dire qu'à chaque modification de configuration le routeur enregistrera automatiquement une sauvegarde qui nous permettra de revenir en arrière.  
-Pour ça il faut aller dans "services" puis cliquer sur "auto config backup".  
-Ensuite on définit un mot de passe (j'ai mis le même que pour l'identification soit "P0se!don"), on coche "enable automatic configuration backup" et "autamaticly backup on every configuration change" et on enregistre avec "save" en bas de la page.  
+Ensuite, afin d'éviter toute erreur de configuration, nous allons activer les backups de restauration sur notre pare-feu. C'est à dire qu'à chaque modification de configuration le routeur enregistrera automatiquement une sauvegarde qui nous permettra de revenir en arrière.  
+Pour cela, il faut aller dans "services" puis cliquer sur `auto config backup`.  
+Ensuite, il faut :
+- Définir un mot de passe (identique à celui de connexion à pfSense)
+- Cocher `enable automatic configuration backup` et `autamaticly backup on every configuration change`
+- Enregistrer avec `save` en bas de la page.  
   
 <P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_2.png" width=700></P>   <BR>  
 
-Maintenant que nous avons configuré un possible retour en arrière de manière simplifiée on va pouvoir s'attaquer aux règles de pare-feu.  
-Il faut pour ça aller dans "Firewall" puis "Rules".  
+Maintenant que nous avons configuré notre backup, nous allons pouvoir s'attaquer aux règles de pare-feu.  Pour cela, il faut aller dans `Firewall` puis `Rules`.  
   
 <P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_3.png" width=700></P>   <BR>  
 
-Ensuite il faudra configurer les règles de filtrage sur chaque interfaces, la LAN (réseau privé de l'entreprise), la WAN (celle qui sort sur le net) et la DMZ (réseau entre le LAN et le WAN).  
-Positionnons-nous donc dans un premier temps sur la LAN (interface configurée sur tous nos PC clients de l'entreprise EcoTech).  
-
-Ensuite on va supprimer la règle qui autorise tout le traffic sur cette interface à toute ipV4 et celle à toute IPv6.  
-
-Après ça on va régler une première règle qui autorise le DNS, donc le port 53 en TCP/UDP sur le LAN :    
-
-On sélectionne donc la parie LAN :  
+Ensuite, il faudra configurer les règles de filtrage sur chaque interfaces, la LAN (réseau privé de l'entreprise), la WAN (celle qui sort sur le net) et la DMZ (réseau entre le LAN et le WAN).  
+Positionnons-nous donc dans un premier temps sur la LAN (interface configurée sur tous nos PC clients de l'entreprise Ecotech Solutions).  
+Ensuite, nous allons supprimer la règle qui autorise tout le trafic sur cette interface à toute IPv4 et celle à toute IPv6.  
+Après cela, nous allons régler une première règle qui autorise le DNS, donc le port 53 en TCP/UDP sur le LAN . Nous sélectionnons donc l'interface `LAN`:  
 
 <P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_4.png" width=300></P>   <BR>    
 
-Ensuite, dans Edit Firewall Rule on va sélectionner :
+Ensuite, dans `Edit Firewall Rule`,  sélectionnez :
 - Action : Pass
 - Interface : LAN
 - Address Family : IPv4 + IPv6
@@ -284,26 +278,31 @@ Ensuite, dans Edit Firewall Rule on va sélectionner :
    
 <P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_5.png" width=700></P>   <BR>  
 
- Dans Sources :
- - On sélectionne LAN subnets
- - Onclique sur Advanced et on sélectionne source port range : DNS (53)
-Dans Destination :
-- On sélectionne Any
-- Destination port range : DNS (53)  
-Enfin dans extra :
-- On nomme cette règle pour savoir la repérer plus tard au besoin plus facilement. Dans mon cas je l'ai nommée "permission d'accès au DNS"
+ Dans `Sources`, sélectionnez :
+ - LAN subnets
+ - Advanced et sélectionnez source port range : `DNS (53)`
+
+Dans `Destination`, sélectionnez :
+- Any
+- Destination port range : `DNS (53)`  
+
+Enfin dans extra, nommez cette règle pour pouvoir la repérer plus tard au besoin plus facilement. Dans mon cas, je l'ai nommée **permission d'accès au DNS**.
   
 <P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_6.png" width=900></P>   <BR>  
-Puis on clique sur Save et ça nous ramène à la page des règles de l'interface LAN. Il faudra ensuite cliquer sur "Apply changes" pour que ces filtres soient pris en compte.  
 
-Pour les prochains filtres on procèdera de la même manière. J'applique pour la suite les filtres suivants :
+Puis, cliquez sur `Save` et cela nous ramène à la page des règles de l'interface LAN. Il faudra ensuite cliquer sur `Apply changes` pour que ces filtres soient pris en compte.  
+Pour les prochains filtres, nous procéderons de la même manière. J'applique pour la suite les filtres suivants :
 - Autorisation à tous les PC du LAN à accéder au web en HTTP (port 80)
 - Autorisation à tous les PC du LAN à accéder au web en HTTPS  (port 443)
 - Autorisation à tous les PC du LAN à accéder au FTP  (TCP port 21)
 - Autorisation à tous les PC du LAN à utiliser le SMTP  (TCP port 25)
 - Autorisation à tous les PC du LAN à utiliser le POP3  (TCP port 110)
 - Autorisation à tous les PC du LAN à utiliser le IMAP  (TCP port 143)  
-- Ensuite on bloque tout le reste en appliquant à la fin un Deny All, ainsi seul les autorisations définies seront autorisées.
+
+Ensuite, nous bloquons tout le reste en appliquant à la fin un `Deny All`, ainsi seul les autorisations définies seront autorisées.
   
-On obtient donc la configuration suivante :  
-<P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_7.png" width=900></P>   <BR>  
+Nous obtenons donc la configuration suivante :  
+<P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_7.png" width=900></P>   <BR> 
+## IV. Mise en place de dossiers partagés sur Aquaman
+
+## V. Mise en place d'un système de supervision PRTG sur le serveur Pantha
