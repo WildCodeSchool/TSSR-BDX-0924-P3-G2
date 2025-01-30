@@ -106,6 +106,6 @@ Contenu du fichier :
 
 Apperçu de la page web (accessible via l'IP du serveur soit 10.12.0.2) :  
 
-![capture 2](/chemin/access/image)  
+![capture 3](/chemin/access/image)  
 
 Ensuite nous avons bien sûr configuré un nouvel email sur notre serveur de messagerie afin que le mail contact@ecotech-solutions.lan existe.  
