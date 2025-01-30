@@ -304,6 +304,7 @@ Ensuite, nous bloquons tout le reste en appliquant à la fin un `Deny All`, ains
   
 Nous obtenons donc la configuration suivante :  
 <P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_7.png" width=900></P>   <BR> 
+
 ## IV. Mise en place de dossiers partagés sur Aquaman
 
 ## V. Mise en place d'un système de supervision PRTG sur le serveur Pantha
