@@ -21,7 +21,7 @@ Après sa création, on s'est identifié en root et lancé une mise a jour des p
 ```bash
 apt update && apt upgrade -y
 ```
-![capture 1](/chemin/access/image)  
+![capture 1](../Ressources/Images/capture_wonderwoman_1)  
 
 Ensuite nous avons intallé le paquet Apache2 qui nous servira à contenir notre site web.  
 
