@@ -31,7 +31,7 @@ apt install apache2 -y
 
 Une fois installé, nous avons réglé les règles du pare-feu PFSense pour pouvoir accéder aux pings et au protocole HTTP depuis de LAN vers la DMZ.  
 
-![capture 2](../Ressources/Images/capture_wonderwoman_2.png)  
+![capture 2](../Ressources/Images/capture_wonderwoman_3.png)  
 
 Ensuite nous avons configuré une connection SSH pour pouvoir administrer le serveur WONDERWOMAN.  
 Nous avons créé une petite page d'accueil indiquant simplement que le site était actuellement en construction et invitant juste les visiteurs à envoyer un mail à la siciété via le mail contact@ecotech-solutions.lan.  
@@ -106,6 +106,6 @@ Contenu du fichier :
 
 Apperçu de la page web (accessible via l'IP du serveur soit 10.12.0.2) :  
 
-![capture 3](../Ressources/Images/capture_wonderwoman_3.png)  
+![capture 3](../Ressources/Images/capture_wonderwoman_2.png)  
 
 Ensuite nous avons bien sûr configuré un nouvel email sur notre serveur de messagerie afin que le mail contact@ecotech-solutions.lan existe.  
