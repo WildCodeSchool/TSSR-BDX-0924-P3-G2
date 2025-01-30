@@ -1,5 +1,4 @@
 # Guide d'utilisation
-
 ## I. Gestion de parc GLPI
 ### a. Connexion à GLPI pour un utilisateur
 Pour se connecter à GLPI, l'utilisateur aura besoin :
