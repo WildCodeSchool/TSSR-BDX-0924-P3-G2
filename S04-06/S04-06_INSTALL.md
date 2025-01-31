@@ -1,7 +1,7 @@
 # Guide d'installation pour l'administrateur
 ## I. Généralités
 Pour cette semaine, nous avons :
-- Intégration des utilisateurs dans l'AD suite à un nouveau document
+- [Intégration des utilisateurs dans l'AD suite à un nouveau document](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#ii-ad---nouveau-fichier-dutilisateurs-%C3%A0-synchroniser-dans-lad)
 - Configuration du routeur pfSense
 - Mise en place de dossiers partagés sur Aquaman
 - Mise en place d'un système de supervision PRTG sur le serveur Pantha
