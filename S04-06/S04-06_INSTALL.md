@@ -3,8 +3,8 @@
 Pour cette semaine, nous avons :
 - [Intégration des utilisateurs dans l'AD suite à un nouveau document](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#ii-ad---nouveau-fichier-dutilisateurs-%C3%A0-synchroniser-dans-lad)
 - [Configuration du routeur pfSense](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#iii-configuration-du-routeur-pfsense)
-- Mise en place de dossiers partagés sur Aquaman
-- Mise en place d'un système de supervision PRTG sur le serveur Pantha
+- [Mise en place de dossiers partagés sur Aquaman](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#iv-mise-en-place-de-dossiers-partag%C3%A9s-sur-aquaman)
+- [Mise en place d'un système de supervision PRTG sur le serveur Pantha](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#v-mise-en-place-dun-syst%C3%A8me-de-supervision-prtg-sur-le-serveur-pantha)
 
 ## II. AD - Nouveau fichier d'utilisateurs à synchroniser dans l'AD  
 L'entreprise **ECOTECH Solutions** nous a fourni un nouveau fichier `S06_EcoTechSolutions.xlsx` contenant des changements concernant l'architecture de l'entreprise :  
@@ -238,7 +238,7 @@ Après exécution du script, nous avons ce retour sur le terminal :
 Nous remarquons que l'arborescence de l'AD est bonne aussi et que les espaces ainsi que les accents ont disparus. <br>
 <P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_arbo_AD_new.png" width=700></P>   <BR>  
 
-Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#i-g%C3%A9n%C3%A9ralit%C3%A9s) pour revenir en début de page.
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
 
 ## III. Configuration du routeur pfSense  
 
@@ -307,6 +307,12 @@ Ensuite, nous bloquons tout le reste en appliquant à la fin un `Deny All`, ains
 Nous obtenons donc la configuration suivante :  
 <P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_7.png" width=900></P>   <BR> 
 
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+
 ## IV. Mise en place de dossiers partagés sur Aquaman
 
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+
 ## V. Mise en place d'un système de supervision PRTG sur le serveur Pantha
+
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
