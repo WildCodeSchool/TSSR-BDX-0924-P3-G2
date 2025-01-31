@@ -238,6 +238,8 @@ Après exécution du script, nous avons ce retour sur le terminal :
 Nous remarquons que l'arborescence de l'AD est bonne aussi et que les espaces ainsi que les accents ont disparus. <br>
 <P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_arbo_AD_new.png" width=700></P>   <BR>  
 
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#i-g%C3%A9n%C3%A9ralit%C3%A9s) pour revenir en début de page.
+
 ## III. Configuration du routeur pfSense  
 
 Pour pouvoir configurer quelques règles de filtrage sur notre routeur, qui joue également le rôle de pare-feu, il faut s'identifier dessus via une autre machine par le biais d'un navigateur internet.  
