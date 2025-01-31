@@ -20,7 +20,7 @@ Pour réaliser l'objectif de mise en place d'un serveur Web pour la société Ec
 - Disk : 15 G
 - Ram : 2048 M
 - Cœurs : 4
-- IP fixe : 10.12.0.1/16
+- IP fixe : 10.12.0.2/16
 - Gateway (celle du routeur sur l'interface DMZ) : 10.12.255.254
   
 Après sa création, nous nous sommes identifié en `root` et effectué une mise à jours des paquets :  
