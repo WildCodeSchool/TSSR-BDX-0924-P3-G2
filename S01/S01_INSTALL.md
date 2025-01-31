@@ -2,11 +2,11 @@
 
 ## I. Généralités
 Pour cette semaine, nous avons :
-- Réfléchir à la configuration des équipements serveurs & clients (Rôles, OS, Configuration système)
-- Comment intégrer les utilisateurs à l'Active Directory
-- Réfléchir à l'arborescence et à la création du domaine (Nom du domaine, Configuration du domaine, les OU & Groupes)
-- Fournir plan d'adressage réseau & schéma réseau
-- Mettre en place une nomenclature de nom
+- [Réfléchir à la configuration des équipements serveurs & clients (Rôles, OS, Configuration système)](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S01/S01_INSTALL.md#ii-configuration-des-%C3%A9quipements-serveurs--clients)
+- [Comment intégrer les utilisateurs à l'Active Directory](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S01/S01_INSTALL.md#iii-int%C3%A9gration-des-utilisateurs-%C3%A0-lactive-directory)
+- [Réfléchir à l'arborescence et à la création du domaine (Nom du domaine, Configuration du domaine, les OU & Groupes)](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S01/S01_INSTALL.md#iv-arborescence-de-lad-et-du-domaine)
+- [Fournir plan d'adressage réseau & schéma réseau](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S01/S01_INSTALL.md#v-plan-dadressage-et-sch%C3%A9ma-r%C3%A9seau)
+- [Mettre en place une nomenclature de nom](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S01/S01_INSTALL.md#vi-nomenclature-de-nom)
 
 ## II. Configuration des équipements serveurs & clients
 
@@ -53,6 +53,8 @@ Pour ce projet, nous aurons besoin de :
 - Client Ubuntu avec interface graphique pour de l'administration (au moins un par administrateur)
 - Client Windows 10 pour les clients du projet
 
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S01/S01_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+
 ## III. Intégration des utilisateurs à l'Active Directory
 Notre équipe compte mettre en place un script pour intégrer les utilisateurs à l'AD. Ce script prendra en compte :
 - Nom et prénom de l'utilisateur
@@ -61,6 +63,8 @@ Notre équipe compte mettre en place un script pour intégrer les utilisateurs �
 - Création des login de l'utilisateur
 - Création du mot de passe de l'utilisateur
 - Numéro de mobile et fixe de l'utilisateur
+
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S01/S01_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
 
 ## IV. Arborescence de l'AD et du domaine
 Le nom du domaine pour notre client sera `ecotech-solutions.lan`. 
@@ -110,6 +114,8 @@ Le nom du domaine pour notre client sera `ecotech-solutions.lan`.
 	- Service achat
 	- Service client
 
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S01/S01_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+
 ## V. Plan d'adressage et schéma réseau
 ### a. Routeur principal
 Suite aux données reçu, nous avons établis le futur réseau de l'entreprise. **Attention**, il peut être amenée à bouger. L'entreprise a un routeur avec pare-feu, ses interfaces sont :
@@ -147,6 +153,8 @@ Pour le plan d'adressage réseau, nous sommes parti sur la base d'un tableau qui
 
 ### 3) Schéma réseau
 ![reseau](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/Réseau/reseauEcotechV2.png)
+
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S01/S01_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
 
 ## VI. Nomenclature de nom
 ### a. Les serveurs
