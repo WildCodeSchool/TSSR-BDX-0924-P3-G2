@@ -1,10 +1,10 @@
 # Guide d'installation pour l'administrateur
 ## I. Généralités
 Pour cette semaine, nous avons :
-  - Mise en place de GPO :
+  - [Mise en place de GPO](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S03/S03_INSTALL.md#ii-les-gpo) :
 	  - Sécurité
 	  - Standard
-  - Mise en place d'un serveur de gestion de parc GLPI avec
+  - [Mise en place d'un serveur de gestion de parc GLPI](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S03/S03_INSTALL.md#iii-gestion-de-parc-glpi) avec
 	  - Synchronisation AD
 	  - Inclusion des objets AD
 ## II. Les GPO
@@ -27,6 +27,7 @@ Ensuite, il faut suivre l'installation en téléchargeant fichier "default appli
 
 ![11](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/Capture%20d'%C3%A9cran%202025-01-10%20105238.png)
 
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S03/S03_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
 
 ## III. Gestion de parc GLPI
 ### a. Prérequis
@@ -171,3 +172,11 @@ Pour l'ajout d'utilisateur supplémentaire, allez sur la documentation utilisate
 Sélectionnez *Groupes > Liaison Annuaire LDAP > Importation de nouveaux groupes*. Laissez les champs comme c'est et cliquez sur `Rechercher`, le reste est identique à l'importation des utilisateurs.
 ***Attention***, le groupe doit être attribué à un utilisateurs pour qu'il soit importer dans GLPI.
 
+## f. Connexion aux comptes
+Après la modification des comptes de bases, voici leur nouveau login :
+- Administrateur : `Administrateur`/`Azerty1*`
+- Technicien : `Technicien`/`Azerty1*`
+- Post-Only : `Post-Only`/`Azerty1*`
+- Utilisateur : `Utilisateur`/`Utilisateur`
+
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S03/S03_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
