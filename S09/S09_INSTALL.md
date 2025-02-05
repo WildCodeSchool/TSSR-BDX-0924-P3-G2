@@ -11,7 +11,7 @@ Pour cette semaine, nous avons :
 Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S09/S09_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
 
 ## III. Mise en place d'un serveur Web
-### 1) Installation et configuration
+### a. Installation et configuration
 
 Pour réaliser l'objectif de mise en place d'un serveur Web pour la société Ecotech-Solutions, nous avons opté pour la création d'une machine serveur Ubuntu 24.04. Pour cela, nous avons créé la VM à partir d'un conteneur, la manipulation pour la créer a été la suivante :
 - Create CT
