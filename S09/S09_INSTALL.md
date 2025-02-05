@@ -2,11 +2,13 @@
 
 ## I. Généralités
 Pour cette semaine, nous avons :
-- Mise en place d'un serveur de téléphonie sur IP
-- Mise en place d'un serveur Web
-- Mise en place d'un PRA suite à une panne d'électricité
+- [Mise en place d'un serveur de téléphonie sur IP](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S09/S09_INSTALL.md#ii-mise-en-place-dun-serveur-de-t%C3%A9l%C3%A9phonie-sur-ip)
+- [Mise en place d'un serveur Web](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S09/S09_INSTALL.md#iii-mise-en-place-dun-serveur-web)
+- [Mise en place d'un PRA suite à une panne d'électricité](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S09/S09_INSTALL.md#iv-mise-en-place-dun-pra-suite-%C3%A0-une-panne-d%C3%A9lectricit%C3%A9)
 
 ## II. Mise en place d'un serveur de téléphonie sur IP
+
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S09/S09_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
 
 ## III. Mise en place d'un serveur Web
 ### 1) Installation et configuration
@@ -131,4 +133,9 @@ Enfin, depuis une autre VM encore j'ai pu constater que le nouveau mail fonction
 
 ![capture 3](../Ressources/Images/capture_mail_3.png)    
 
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S09/S09_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+
 ## IV. Mise en place d'un PRA suite à une panne d'électricité
+
+
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S09/S09_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
