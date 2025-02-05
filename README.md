@@ -115,7 +115,6 @@ Julien Normand | Mindy Setham| Sybill Gribonval
 - Julien Normand
   - ...
 - Mindy Setham
-  - Partenariat d'entreprise avec BillU pour la mise un place d'un dossier partagé entre les utilisateurs des deux sociétés
   - Mettre les rôles FSMO sur l'AD
 - Sybill Gribonval
   - Partenariat d'entreprise avec BillU pour la mise en place d'un VPN site-à-site.
@@ -136,6 +135,21 @@ Julien Normand | Mindy Setham| Sybill Gribonval
   - ...
 - Groupe
   - Mise en place d'un PRA suite à une panne d'électricité
+
+### h. Sprint 10
+#### Membres du groupe et leurs rôles
+| Product Owner | Scrum Master     | TSSR           |
+| ------------- | ---------------- | -------------- |
+| Mindy Setham  | Sybill Gribonval | Julien Normand |
+
+#### Objectifs du sprint
+- Julien Normand
+  - Préparer l'ordinateur d'administrateur
+  - Création des comptes GLPI (TSSR & Wilder) pour la simulation d'une panne
+- Mindy Setham
+  - ...
+- Sybill Gribonval
+  - ...
 
 ## IV. Présentation finale
 
