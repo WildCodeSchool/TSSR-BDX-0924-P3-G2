@@ -315,4 +315,145 @@ Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04
 
 ## V. Mise en place d'un système de supervision PRTG sur le serveur Pantha
 
+### a. Généralités
+**PRTG Network Monitor** est un logiciel de surveillance réseau, il permet de superviser l'ensemble des équipements d'un réseau information, incluant les serveurs, les routeurs, les switchs, les bases de données, et bien d'autres dispositifs.
+Grâce à un système de capteurs (sondes) préconfigurés, **PRTG** offre une *vue en temps réel* des performances et de la disponibilité des infrastructures IT.
+Il repose sur plusieurs protocoles standards tels que **SNMP, WMI, SSH, NetFlow** et **Ping** pour collecter et analyser les données réseau.
+### b. Prérequis
+#### Systèmes d'exploitation compatible
+**PRTG** s'installe uniquement sur *Windows*, voici les versions compatibles :
+- Windows Server 2022, 2019, 2016
+  **Attention, les versions CORE ne sont pas pris en charge étant donné que nous avons besoin d'une interface graphique.**
+- Windows 11, 10 (en 64 bits uniquement)
+
+Pour notre infrastructure, nous utiliserons *Windows Server 2022*.
+#### Configuration matérielle minimale
+Les exigences matérielles dépendent du nombre de capteurs utilisés, cependant nous allons utiliser la version gratuite de **PRTG** qui est limitée à **100 capteurs**. Ce qui fait que nous aurons besoins :
+- CPU : 2 cœurs
+- RAM : 4 Go
+- Stockage : 150 Go SSD
+Le stockage n'est pas obligatoire en SSD mais fortement conseillé pour améliorer les performances.
+
+#### Configuration logiciel
+Pour pouvoir configurer **PRTG**, il faut :
+- Avoir un accès *Administrator* pour l'installation
+- Avoir les ports réseau ouverts :
+	- 80/443 (HTTP/HTTPS) pour l'interface web
+	- 161 (SNMP) pour la surveillance des périphériques réseau
+
+#### Réseau
+Pour pouvoir configurer **PRTG**, il faut :
+- Une adresse IP fixe, pour notre infrastructure ça sera : `10.10.7.14`
+- Un accès à internet pour les mises à jours et les notifications
+
+### c. Installation de PRTG
+Pour installer **PRTG**, il faut dans en premier temps télécharger le *.exe* via ce [lien](https://www.paessler.com/fr). Le *.exe* qui sera téléchargé aura déjà une clé incluse, cette clé est pour la version d'essai de 30 jours de **PRTG**.
+
+Ensuite, nous pouvons lancer le *.exe* pour installer **PRTG** où des choix vous seront demandés :
+- Langue de l'assistant d'installation : Français
+- Votre adresse mail :  mettre une adresse mail (de préférence celui de l'administrateur de votre IT)
+- - Mode d'installation : 
+	- Rapide (recommandé) : Si vous ne connaissez pas le logiciel
+	- Personnalisé : Si vous connaissez le logiciel
+
+Une fois l'installation l'installation terminée, vous arriverez sur cette page web :
+![1](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/8396a278d2131492fdee02dac4631d6f2da231c1/Ressources/Images/PRTG/PRTG01.png)
+
+Une icône s'est aussi mis sur le bureau pour pouvoir accéder l'interface de **PRTG**.
+Et vous pouvez accéder à l'interface de **PRTG** depuis n'importe quel PC via l'adresse `http://10.10.7.14/`.
+### d. Configuration initiale de PRTG
+Pour configurer **PRTG**, il faut vous connecter une première fois avec les logins par défaut *prtgadmin*/*prtgadmin*. Une fois connecté, vous serez aidé d'un *wizard* qui vous aidera pas à pas la configuration de votre système de supervision.  
+![2](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/8396a278d2131492fdee02dac4631d6f2da231c1/Ressources/Images/PRTG/PRTG02.png)
+
+Au début, il faudra laisser PRTG découvrir son nouveau réseau puis aller dans `Paramètres` pour modifier les **Informations d'identification pour systèmes Windows**.  
+![3](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/8396a278d2131492fdee02dac4631d6f2da231c1/Ressources/Images/PRTG/PRTG03.png)
+
+- Nom d'ordinateur : `Pantha`
+- Nom d'utilisateur : `Administrateur`
+- Mot de passe : `Azerty1*`
+
+Maintenant, avec ces informations il faut relancer la découverte automatique pour vérifier si rien n'a été manqué.
+
+Par la suite, il faut remplir la *localisation* de votre IT.  
+![4](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/8396a278d2131492fdee02dac4631d6f2da231c1/Ressources/Images/PRTG/PRTG04.png)
+
+Maintenant, nous revenons à la vue d'ensemble des équipements où il nous demandera de modifier notre mot de passe (`Azerty1*`) puis de vérifier notre adresse mail :  
+![5](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/8396a278d2131492fdee02dac4631d6f2da231c1/Ressources/Images/PRTG/PRTG05.png)
+
+La configuration initiale est terminé !  
+![6](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/8396a278d2131492fdee02dac4631d6f2da231c1/Ressources/Images/PRTG/PRTG06.png)
+
+Il ne reste qu'une chose à faire, sécuriser la connexion de notre navigateur par SSL/TLS comme le demande la pop-up d'avertissement.  
+![7](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/8396a278d2131492fdee02dac4631d6f2da231c1/Ressources/Images/PRTG/PRTG07.png) 
+
+![8](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/8396a278d2131492fdee02dac4631d6f2da231c1/Ressources/Images/PRTG/PRTG08.png)
+
+**Mais la sécurisation SSL/TLS c'est quoi ?** C'est un protocole de chiffrement qui permet de sécuriser les échanges entre un client et un serveur sur un réseau. Il empêche l'interception et la modification des données échangées, garantissant trois aspects essentiels de la sécurité :
+- *Confidentialité* : Le chiffrement de données empêche les tiers malveillants d'espionner les communications.
+- *Intégrité* : Il garantit que les données ne sont pas altérées pendant leur transmission.
+- *Authentification* : Un certificat numérique permet d'identifier et de vérifier l'identité du serveur et parfois du client.
+### e. Configuration avancée de PRTG
+#### Création d'un utilisateur
+Actuellement nous avons un compte administrateur qui peut tout faire, nous allons donc créer un compte technicien qui aura seulement un droit de lecture. Pour cela il faut aller dans **Setup > System Administration > User Accounts > + > Add User**, où vous modifier les champs suivant :
+- User Account Settings
+	- *Login Name* : Technicien
+	- *Display Name* : PRTG System Technicien 
+	- *Primary Email Address* : `nom du technicien`@ecotech-solutions.lan
+	- *Password* : Azerty1*
+	- *Confirm Password*
+- Account Settings
+	- *User Type* : Read-Only User
+
+Laissez le reste inchangé et cliquez sur `Create`. Une fois cela fait, vous aurez la page suivante :
+![9](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/8396a278d2131492fdee02dac4631d6f2da231c1/Ressources/Images/PRTG/PRTG09.png)
+#### Suppression d'un utilisateur
+Toujours sur la même page précédente, cliquez sur l'utilisateur à supprimer puis en haut à droite cliquez sur l'icône de la poubelle et confirmer l'action avec `Delete Object`.
+![10](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/8396a278d2131492fdee02dac4631d6f2da231c1/Ressources/Images/PRTG/PRTG10.png)
+#### Ajout d'un `Device`
+Pour ajouter un équipement (*Device*), il faut aller dans **Devices > Add Device**. Après il faut choisir dans quel branche (*List*) mettre l'équipement (exemple : si c'est un serveur windows, choisissez **Local Probe > Network Discovery > Windows > Servers**). La branche sélectionnée apparaîtra en bleu.
+Vous arriverez sur une pop-up où vous devrez remplir :
+- *Device Name* : Mettre le nom du serveur (exemple : WonderWoman)
+- *IP Version* : Laissez sur IPv4
+- *IPv4 Address/DNS Name* : Mettre l'adresse du serveur
+- *Auto-Discovery Settings* : Default auto-discovery (recommanded)
+
+Puis cliquez sur `Ok`. A la suite de quoi **PRTG** lancera une *discovery* automatiquement de l'équipement en question. Si cela ne fonctionne pas, essayez de faire un test de connexion avec un *ping* depuis le terminal pour être sur que le serveur **PRTG** puisse communiquer avec l'équipement.
+#### Suppression d'un `Device`
+Pour supprimer un équipement (*Device*), il faut aller dans **Devices** puis cliquer l'équipement à supprimer.
+En haut à droite, faites dérouler la flèche pour pouvoir cliquer sur **Delete**.
+### f. Configuration d'un Dashboard
+Sous PRTG, un Dashboard a pour nom **Maps**. Dans un premier temps, nous allons voir comment :
+- Créer une Map
+- Modifier une Map
+- Supprimer une Map
+#### Créer d'une Map
+Pour créer une Map, il faut aller dans **Maps > Add Map**. Ici vous aurez à remplir les champs :
+- *Map Name* : Le nom de votre **map**
+- *Map Width* : La largeur de votre **map**
+- *Map Height* : La longueur de votre **map**
+- *Map Access* : 
+	- *No public access* : Toute personne étrangère à l'administration de PRTG ne peut accéder à la **map**.
+	- *Allow public access* : Toute personne étrangère à l'administration de PRTG peut accéder à la **map**.
+	- *Allow public access but disable all links gor Geo Maps* : Toute personne étrangère à l'administration de PRTG peut accéder à la **map** mais ne peut pas accéder au lien de la carte géographique.
+
+Une fois cela fait, cliquez sur `Create`. Pour la **map** de ce projet nous sommes parti sur : 
+- *Map Name* : Dashboard
+- *Map Width* : 800
+- *Map Height* : 1000
+- *Map Access* : No public access
+#### Modifier une Map
+Une fois la **map** créé, nous pouvons la modifier :
+- Pour le *Design* en allant dans **Maps > "Nom de la maps" > Map Designer**
+- Pour le *Settings* en allant dans **Maps > "Nom de la maps" > Settings** où vous aurez plus de choix (*Droits d'accès*, *Disposition de la carte*, *Paramètre de base*)
+
+C'est dans **Map Designer** que nous allons pouvoir placer les icônes de notre IT (Internet, Gateway, Serveurs, Client, Parc informatique Windows / Linux, ...). Pour cela vous avez :
+- Panneau latéral gauche **Device Tree** où vous trouverez tous les équipements de notre IT.
+  Pour avoir nos équipements IT, il faut aller dans **Root > Local Probe > Network Discovery** puis choisir notre équipement.
+- Panneau latéral droit **Properties** où vous trouverez différent style d'icône :
+
+Une fois l'équipement et l'icône choisi, il faut cliquez sur l'icône sans relâcher et le faire glisser sur le panneau central qui est votre **map**. Ci-dessous un exemple de ce qu'à quoi une **map** peut ressembler.
+![11](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/8396a278d2131492fdee02dac4631d6f2da231c1/Ressources/Images/PRTG/PRTG11.png)
+#### Supprimer une Map
+Pour supprimer une Map, il faut aller dans **Maps > NomdelaMap**, puis cliquer en haut à droite sur l'icône de la poubelle. Une pop-up s'affiche, pour finir cliquez sur `Delete Object`.
+
 Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
