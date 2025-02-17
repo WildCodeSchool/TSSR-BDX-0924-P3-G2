@@ -152,7 +152,7 @@ Pour le plan d'adressage réseau, nous sommes parti sur la base d'un tableau qui
 *Ceci est donnée à titre d'exemple pour des raisons de sécurité.*
 
 ### 3) Schéma réseau
-![reseau](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/Réseau/reseauEcotechV2.png)
+![reseau](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/Ressources/Images/Réseau/reseauEcotechV2.png)
 
 Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S01/S01_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
 
@@ -168,4 +168,4 @@ Pour la nomenclature de nom, nous sommes parti sur la base d'un tableau qui sera
 *Ceci est donnée à titre d'exemple pour des raisons de sécurité.*
 
 ### b. Les ordinateurs
-Les ordinateurs de chez Ecotech Solutions sont déjà nommés, vous pourrez trouver la liste [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/ordinateur.pdf).
+Les ordinateurs de chez Ecotech Solutions sont déjà nommés, vous pourrez trouver la liste [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/Ressources/ordinateur.pdf).
