@@ -21,11 +21,25 @@ On sélectionne bien notre noeud (node10), on saisit le CTIG (1065), le Hostname
 On choisit ensuite le strorage, on remplace ceph-data par local-data et on choisit la taille du disque.  
 ![capture 1](../Ressources/Images/MORPHEUS_4.png)  
 
+On choisit ensuite le nombre de processeur et la mémoire :    
 ![capture 1](../Ressources/Images/MORPHEUS_5.png) 
-![capture 1](../Ressources/Images/MORPHEUS_6.png) 
-![capture 1](../Ressources/Images/MORPHEUS_7.png) 
-![capture 1](../Ressources/Images/MORPHEUS_8.png) 
-![capture 1](../Ressources/Images/MORPHEUS_9.png) 
+![capture 1](../Ressources/Images/MORPHEUS_6.png)  
+
+Ici on définit directement l'IP de notre serveur en IP fixe (ici 10.10.7.13/16) avec en gateway celle de notre routeur PFsense.  
+On choisit l'interface (chez nous celle du LAN, la vmbr 1055)  
+On retire aussi le firewall de l'interface, nous avons notre propre parefeu.  
+![capture 1](../Ressources/Images/MORPHEUS_7.png)   
+
+Dans l'onglet DNS, on met notre domaine dans "DNS domain" et l'IP de notre serveur DNS dans "DNS servers".  
+On pourrait rajouter aussi celui de google en le rajoutant après une virgule :  
+`10.10.7.10, 8.8.8.8`  
+![capture 1](../Ressources/Images/MORPHEUS_8.png)  
+
+On vérifie bien chaque paramètre et on confirme en cliquant sur "Finish"    
+![capture 1](../Ressources/Images/MORPHEUS_9.png)   
+
+### Installation du logiciel de messagerie  
+  
 Ensuite on a mis a jour la liste des paquets ainsi que les paquets eux même avec la commande :  
 `sudo apt update && sudo apt upgrade -y`
 ## III. Mise en place d'un serveur de gestion de mot de passe
