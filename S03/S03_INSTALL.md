@@ -8,7 +8,32 @@ Pour cette semaine, nous avons :
 	  - Synchronisation AD
 	  - Inclusion des objets AD
 ## II. Les GPO
-### a. Sécurité
+### a. Sécurité  
+
+Pour configurer la GPO Sécurité il faut accéde à l'outil de gestion des stratégies de groupes, Group Policy Management, puis sur l'onglet Domains > Default Domain Policy puis éditer.
+
+![Ressources/Images/Capture d'écran 2025-02-17 095200.png](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/Capture%20d'%C3%A9cran%202025-02-17%20095200.png)
+
+Puis sur sur Computer Configuration > Policies > Windows Settings > Security Settings > Password Policy  
+
+![Ressources/Images/Capture d'écran 2025-02-17 095213.png](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/Capture%20d'%C3%A9cran%202025-02-17%20095213.png)  
+
+Ensuite il faut choisir les éléments à configurer
+
+Enforce password history, pour renseigner le nombre d’anciens mots de passe stockés dans l’historique de l’AD qui ne peuvent être utilisés à nouveau.
+
+Maximum password age, pour définir à quel moment expirera le mot de passe en nombre de jours, et ainsi forcer le renouvellement. Grâce à ce paramètre, vous gérez l’antériorité maximale du mot de passe.
+
+Minimum password age, pour établir le nombre de jours à partir duquel un utilisateur pourra changer le mot de passe, et éviter les modifications trop régulières. Si vous souhaitez autoriser un renouvellement immédiat, inscrivez 0.
+
+Minimum password lengh, pour configurer la longueur minimale du mot de passe. Il est recommandé d’opter pour au moins 8 caractères. L’ANSSI va même jusqu’à 12.
+
+Password must meet complexity requirements, pour signifier si le mot de passe doit répondre à des exigences de complexité. Grâce à ce paramètre, les collaborateurs ne peuvent utiliser le nom du compte utilisateur. Il impose également l’usage de 3 types de caractères différents appartenant aux 5 catégories suivantes :
+lettres majuscules,
+lettres minuscules,
+chiffres,
+caractères spéciaux,
+caractères Unicode.
 
 ### b. Standard
 
