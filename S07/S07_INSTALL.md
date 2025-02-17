@@ -115,10 +115,22 @@ La messagerie "clients" sera accessible via l'URL :
 
 Maintenant que notre serveur est opérationnel, on va pouvoir gérer les comptes utilisateurs. Sur un poste client du réseau on se rend donc sur l'URL d'administration :  
  `https://iRedMail/iRedAdmin/`  
+ On rentre les identifiants d'administration à savoir :  
+ id : `postmaster@ecotech-solutions.lan`
+ mdp : `Azerty1*`
  ![capture 1](../Ressources/Images/MORPHEUS_11.png)  
+
+ Ensuite on va ajouter des comptes utilisateurs, pour ca on va cliquer sur Add, puis User :  
  ![capture 1](../Ressources/Images/MORPHEUS_12.png)  
+
+ Ensuite on renseigne les champs `Mail Address`, `New password`, `Display Name`, on peut également paramétrer `Mailbox Quota` pour définir l'espace maximum de la boite en question dans notre serveur.  
+ Je vais créer un compte pour l'utilisateur Julien NORMAND, et un autre pour l'utilisateur "Contact" qui servira plus tard à notre site web :  
  ![capture 1](../Ressources/Images/MORPHEUS_13.png)  
+
+ Ensuite on peut vérifier que les comptes sont bien créés en se déplaçant dans "Domains and Accounts" => "Users" :  
  ![capture 1](../Ressources/Images/MORPHEUS_14.png)  
+
+ je vérifie ensuite que les mails fonctionnent bien en m'y connectant via l'interface web en rentrant l'adresse `thhps://iredmail/mail` et en rentrant les identifiants définis lors de la création du compte. 
  ![capture 1](../Ressources/Images/MORPHEUS_15.png)  
  ![capture 1](../Ressources/Images/MORPHEUS_16.png)  
  ![capture 1](../Ressources/Images/MORPHEUS_17.png)  
