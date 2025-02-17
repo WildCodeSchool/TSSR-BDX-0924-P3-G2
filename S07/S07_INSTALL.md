@@ -7,7 +7,7 @@ Pour cette semaine, nous avons :
 
 ## II. Mise en place d'un serveur de messagerie  
 
-### Création du CT
+### a- Création du CT
 Pour mettre en place le serveur de messagerie, nous avons choisit de créer une VM de type conteneur. On a prit un serveur serveur Linux Ubuntu 24.04 en CLI. 
 La création d'un CT est simple, dans proxmox il suffit d'abord de cliquer sur "Create CT" :  
 ![capture 1](../Ressources/Images/MORPHEUS_1.png)  
@@ -38,10 +38,9 @@ On pourrait rajouter aussi celui de google en le rajoutant après une virgule :
 On vérifie bien chaque paramètre et on confirme en cliquant sur "Finish"    
 ![capture 1](../Ressources/Images/MORPHEUS_9.png)   
 
-### Installation du logiciel de messagerie  
-  
-Toutes les commandes réalisées ci-après sont saisies en root, si vous voulez refaire ces installations et que vous n'êtes pas root, il faudra les précéder de `sudo`.  
-Ensuite on a mis a jour la liste des paquets ainsi que les paquets eux même avec la commande :  
+Ensuite, on démarre le CT, et on met a jour la liste des paquets ainsi que les paquets eux même avec la commande :  
+(à précéder de `sudo` si vous n'êtes pas root)  
+
 ```bash
 apt update && sudo apt upgrade -y
 ```
@@ -49,6 +48,8 @@ Ensuite on installe wget et vim :
 ```bash
 apt install -y wget vim
 ```
+
+### b- Paramétrage du DNS  
 Avant d'installer Iredmail sur notre serveur de messagerie, il faut paramétrer notre DNS en y ajoutant des enregistrements.  
 On retourne donc sur notre serveur DNS (DC01).  
 De là on va créer des enregistrements :
@@ -73,8 +74,36 @@ De là on va créer des enregistrements :
     On choisit "Alias (CNAME)" et on clique sur "Créer un enregistrement...".
     Dans "Nom d'alias", on entre un alias pour votre serveur iredmail (iredmail)).
     Dans "Nom de domaine complet de la cible", on rentre le nom de domaine complet de notre serveur iredmail (MORPHEUS.ecotech-solutions.lan).
-    On sur "OK".
+    On sur "OK".  
   ![capture 1](../Ressources/Images/DNS_1.png) 
 
+### c- Installation d'Iredmail sur le serveur  
+
+Les commandent ci après servent à:
+- télécharger le fichier d'installation
+- l'extraire
+- se placer dans le dossier du contenu extrait
+- exécuter le script d'installation
+```bash
+wget https://github.com/iredmail/iRedMail/archive/refs/tags/1.7.1.tar.gz
+tar xvf 1.7.1.tar.gz
+cd iRedMail-1.7.1
+bash iRedMail.sh
+```
+A l'exécution du script `iRedMail.sh`, on rentre les paramètres suivants :  
+
+    Stockage des emails: l'emplacement (par défaut /var/vmail)
+    Serveur web: Nginx
+    Backend: OpenLDAP
+    Premier domaine: ecotech-solutions.lan
+    Mot de passe administrateur de la base de donnée: Azerty1*
+    Nom de domaine du premier mail: ecotech-solutions.lan
+    Mot de passe administrateur du premier mail: Azerty1*
+    Composant optionnel: On coche toutes les options
+    Confirmation: On vérifie les options et on confirme
+
+A la fin de l'installation on obtient la page suivante, qui nous fait un résumé de la configuration, ainsi que les addresses pour l'administration et les accès au webmail.  
+
+ ![capture 1](../Ressources/Images/DNS_1.png)   
 
 ## III. Mise en place d'un serveur de gestion de mot de passe
