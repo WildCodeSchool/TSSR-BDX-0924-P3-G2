@@ -1,10 +1,10 @@
 # Guide d'installation pour l'administrateur
 ## I. Généralités
 Pour cette semaine, nous avons :
-- [Intégration des utilisateurs dans l'AD suite à un nouveau document](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#ii-ad---nouveau-fichier-dutilisateurs-%C3%A0-synchroniser-dans-lad)
-- [Configuration du routeur pfSense](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#iii-configuration-du-routeur-pfsense)
-- [Mise en place de dossiers partagés sur Aquaman](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#iv-mise-en-place-de-dossiers-partag%C3%A9s-sur-aquaman)
-- [Mise en place d'un système de supervision PRTG sur le serveur Pantha](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#v-mise-en-place-dun-syst%C3%A8me-de-supervision-prtg-sur-le-serveur-pantha)
+- [Intégration des utilisateurs dans l'AD suite à un nouveau document](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S04-06/S04-06_INSTALL.md#ii-ad---nouveau-fichier-dutilisateurs-%C3%A0-synchroniser-dans-lad)
+- [Configuration du routeur pfSense](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S04-06/S04-06_INSTALL.md#iii-configuration-du-routeur-pfsense)
+- [Mise en place de dossiers partagés sur Aquaman](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S04-06/S04-06_INSTALL.md#iv-mise-en-place-de-dossiers-partag%C3%A9s-sur-aquaman)
+- [Mise en place d'un système de supervision PRTG sur le serveur Pantha](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S04-06/S04-06_INSTALL.md#v-mise-en-place-dun-syst%C3%A8me-de-supervision-prtg-sur-le-serveur-pantha)
 
 ## II. AD - Nouveau fichier d'utilisateurs à synchroniser dans l'AD  
 L'entreprise **ECOTECH Solutions** nous a fourni un nouveau fichier `S06_EcoTechSolutions.xlsx` contenant des changements concernant l'architecture de l'entreprise :  
