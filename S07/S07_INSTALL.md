@@ -40,6 +40,41 @@ On vérifie bien chaque paramètre et on confirme en cliquant sur "Finish"
 
 ### Installation du logiciel de messagerie  
   
+Toutes les commandes réalisées ci-après sont saisies en root, si vous voulez refaire ces installations et que vous n'êtes pas root, il faudra les précéder de `sudo`.  
 Ensuite on a mis a jour la liste des paquets ainsi que les paquets eux même avec la commande :  
-`sudo apt update && sudo apt upgrade -y`
+```bash
+apt update && sudo apt upgrade -y
+```
+Ensuite on installe wget et vim :  
+```bash
+apt install -y wget vim
+```
+Avant d'installer Iredmail sur notre serveur de messagerie, il faut paramétrer notre DNS en y ajoutant des enregistrements.  
+On retourne donc sur notre serveur DNS (DC01).  
+De là on va créer des enregistrements :
+- Enregistrement MX:
+
+    Clic droit notre domaine -> "Nouvel enregistrement...".
+    On choisit "Échangeur de courrier (MX)" et on clique sur "Créer un enregistrement...".
+    Dans "Nom de l'hôte de l'échangeur de courrier", on entre le hostname de votre serveur iredmail (MORPHEUS).
+    Dans "Priorité", on rentre une valeur faible (10).
+    On clique sur "OK".
+- Enregistrement A:
+
+    Clic droit sur notre domaine -> "Nouvel enregistrement...".
+    On choisit "Hôte (A)" et on clique sur "Créer un enregistrement...".
+    Dans "Nom", on rentre le hostname de notre serveur Iredmail (MORPHEUS).
+    Dans "Adresse IP", on entre l'adresse IP de notre serveur iredmail (10.10.7.13).
+    On clique sur "OK".
+
+- Enregistrement CNAME :
+
+    On clique droit sur notre domaine -> "Nouvel enregistrement...".
+    On choisit "Alias (CNAME)" et on clique sur "Créer un enregistrement...".
+    Dans "Nom d'alias", on entre un alias pour votre serveur iredmail (iredmail)).
+    Dans "Nom de domaine complet de la cible", on rentre le nom de domaine complet de notre serveur iredmail (MORPHEUS.ecotech-solutions.lan).
+    On sur "OK".
+  ![capture 1](../Ressources/Images/DNS_1.png) 
+
+
 ## III. Mise en place d'un serveur de gestion de mot de passe
