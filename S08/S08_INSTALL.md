@@ -158,4 +158,3 @@ Une vérification a été effectuée avec netdom query fsmo pour s’assurer que
 
 ## IV. Mise en place d'un VPN site à site avec la société BillU
 
-## V. Mise en place de dossiers partagés entre les utilisateurs des sociétés Ecotech Solutions & BillU
