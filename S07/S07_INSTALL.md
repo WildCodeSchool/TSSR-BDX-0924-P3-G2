@@ -104,6 +104,6 @@ A l'exécution du script `iRedMail.sh`, on rentre les paramètres suivants :
 
 A la fin de l'installation on obtient la page suivante, qui nous fait un résumé de la configuration, ainsi que les addresses pour l'administration et les accès au webmail.  
 
- ![capture 1](../Ressources/Images/DNS_10.png)   
+ ![capture 1](../Ressources/Images/MORPHEUS_10.png)   
 
 ## III. Mise en place d'un serveur de gestion de mot de passe
