@@ -1,10 +1,10 @@
 # Guide d'installation pour l'administrateur
 ## I. Généralités
 Pour cette semaine, nous avons :
-  - [Mise en place de GPO](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S03/S03_INSTALL.md#ii-les-gpo) :
+  - [Mise en place de GPO](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S03/S03_INSTALL.md#ii-les-gpo) :
 	  - Sécurité
 	  - Standard
-  - [Mise en place d'un serveur de gestion de parc GLPI](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S03/S03_INSTALL.md#iii-gestion-de-parc-glpi) avec
+  - [Mise en place d'un serveur de gestion de parc GLPI](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S03/S03_INSTALL.md#iii-gestion-de-parc-glpi) avec
 	  - Synchronisation AD
 	  - Inclusion des objets AD
 ## II. Les GPO
@@ -12,11 +12,11 @@ Pour cette semaine, nous avons :
 
 Pour configurer la GPO Sécurité il faut accéde à l'outil de gestion des stratégies de groupes, Group Policy Management, puis sur l'onglet Domains > Default Domain Policy puis éditer.
 
-![Ressources/Images/Capture d'écran 2025-02-17 095200.png](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/Capture%20d'%C3%A9cran%202025-02-17%20095200.png)
+![Ressources/Images/Capture d'écran 2025-02-17 095200.png](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/Ressources/Images/Capture%20d'%C3%A9cran%202025-02-17%20095200.png)
 
 Puis sur sur Computer Configuration > Policies > Windows Settings > Security Settings > Password Policy  
 
-![Ressources/Images/Capture d'écran 2025-02-17 095213.png](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/Capture%20d'%C3%A9cran%202025-02-17%20095213.png)  
+![Ressources/Images/Capture d'écran 2025-02-17 095213.png](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/Ressources/Images/Capture%20d'%C3%A9cran%202025-02-17%20095213.png)  
 
 Ensuite il faut choisir les éléments à configurer
 
@@ -41,18 +41,18 @@ Pour configurer la GPO standard pour mettre Chrome en navigateur par défaut, il
 
 Dans un premier temps se rendre sur le site: https://chromeenterprise.google/download/#download, et filtrer sur "Windows" en bas de l'écran
 
-![9](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/Capture%20d'%C3%A9cran%202025-01-10%20105154.png)
+![9](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/Ressources/Images/Capture%20d'%C3%A9cran%202025-01-10%20105154.png)
 
 Ensuite, cliquer sur le premier onglet "Quick start guide for Windows", pour ouvrir le guide de téléchargements des fichiers qui seront nécessaires à la configuration.
 
-![10](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/Capture%20d'%C3%A9cran%202025-01-10%20105215.png)
+![10](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/Ressources/Images/Capture%20d'%C3%A9cran%202025-01-10%20105215.png)
 
 
 Ensuite, il faut suivre l'installation en téléchargeant fichier "default application association", que l'on voit tout en bas 
 
-![11](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/Capture%20d'%C3%A9cran%202025-01-10%20105238.png)
+![11](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/Ressources/Images/Capture%20d'%C3%A9cran%202025-01-10%20105238.png)
 
-Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S03/S03_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S03/S03_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
 
 ## III. Gestion de parc GLPI
 ### a. Prérequis
@@ -153,20 +153,20 @@ Maintenant, vous pouvez redémarrer le serveur pour appliquer tous les changemen
 #### Configuration de l'interface web
 Depuis un navigateur web, allez sur la page internet : `http://10.10.7.12/glpi.lab.lan`, vous arriverez sur cette page :
 
-![1](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/GLPI/1.png)
+![1](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/Ressources/Images/GLPI/1.png)
 Et sélectionnez la langue `Français`, puis cliquez sur `Ok >`. Puis vous arriverez sur une seconde page pour les *copyrigth* où vous pourrez cliquer sur `Continuer >`. 
 
-![3](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/GLPI/3.png)
+![3](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/Ressources/Images/GLPI/3.png)
 
 Sur cette image, sélectionnez `Installer`. Puis remplissez la page d'après comme ci-dessous :
-![4](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/GLPI/4.png)
+![4](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/Ressources/Images/GLPI/4.png)
 
 Et cliquez sur `Continuer >`. Sur la page suivante, pensez à bien sélectionner la base de donnée **glpidb** puis cliquez sur `Continuer >` où une initialisation de la base de données sera effectuées. Une fois la base de donnée initialisée, cliquez sur `Continuer >` ou sur `Ok >` sur toutes les pages suivantes jusqu'à la fin de l'installation.
 
 #### Connexion à l'interface Web
 Pour vous connectez à GLPI, vous devez être sur cette page avec le lien `http://10.10.7.12/glpi.lab.lan` :
 
-![8](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/Images/GLPI/8.png)
+![8](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/Ressources/Images/GLPI/8.png)
 
 Avec cette configuration, vous avez la possibilité de vous connecter sur ces comptes :
 - Administrateur (`glpi`/`glpi`)
@@ -204,4 +204,4 @@ Après la modification des comptes de bases, voici leur nouveau login :
 - Post-Only : `Post-Only`/`Azerty1*`
 - Utilisateur : `Utilisateur`/`Utilisateur`
 
-Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S03/S03_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S03/S03_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
