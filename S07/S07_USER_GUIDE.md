@@ -21,7 +21,7 @@ Il suffit de cliquer dans la partie de gauche sur "Rédiger".
 Ensuite, il faudra renseigner :
 - l'email de votre destinataire dans la partie "A"
 - l'objet de votre email dans la partie "Objet"
-- votre message dans le grand carré blanc situé juste en dessous (voir image ci après)
+- votre message dans le grand carré blanc situé juste en dessous (voir image ci après)  
 ![capture 1](../Ressources/Images/IRedMail_3.png)
 
 Si vous voulez ajouter une pièce jointe (un fichier image, un document quelconque etc.) il vous faudra cliquer sur "Joindre un fichier" dans la partie de droite.  
