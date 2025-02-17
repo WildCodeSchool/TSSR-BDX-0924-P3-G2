@@ -3,7 +3,7 @@
 ## I. Généralités
 Pour cette semaine, nous avons :
 - Mise en place d'un serveur de messagerie
-- Mise en place d'un serveur de gestion de mot de passe
+- Mise en place d'un serveur de gestion de mot de passe (cette partie n'a pas été faite, cet objectif était en "optionnel")
 
 ## II. Mise en place d'un serveur de messagerie  
 
@@ -130,10 +130,18 @@ Maintenant que notre serveur est opérationnel, on va pouvoir gérer les comptes
  Ensuite on peut vérifier que les comptes sont bien créés en se déplaçant dans "Domains and Accounts" => "Users" :  
  ![capture 1](../Ressources/Images/MORPHEUS_14.png)  
 
- je vérifie ensuite que les mails fonctionnent bien en m'y connectant via l'interface web en rentrant l'adresse `thhps://iredmail/mail` et en rentrant les identifiants définis lors de la création du compte. 
+ je vérifie ensuite que les mails fonctionnent bien en m'y connectant via l'interface web en rentrant l'adresse `thhps://iredmail/mail` et en rentrant les identifiants définis lors de la création du compte.  
+ D'abord avec le compte `contact@ecotech-solutions.lan` :  
  ![capture 1](../Ressources/Images/MORPHEUS_15.png)  
+
+ De là on envoie un mail de test à l'autre compte créé pour voir si tout fonctionne.  
  ![capture 1](../Ressources/Images/MORPHEUS_16.png)  
- ![capture 1](../Ressources/Images/MORPHEUS_17.png)  
+
+ On peut voir depuis l'autre compte que le mail est bien réceptionné.  
+  ![capture 1](../Ressources/Images/MORPHEUS_17.png)  
+
+ On peut donc y répondre afin de vérifier que celà fonctionne bien dans les 2 sens.   
  ![capture 1](../Ressources/Images/MORPHEUS_18.png)  
+
+ C'est chose faite, la réponse est bien reçue de l'autre côté !  
  ![capture 1](../Ressources/Images/MORPHEUS_19.png)  
-## III. Mise en place d'un serveur de gestion de mot de passe
