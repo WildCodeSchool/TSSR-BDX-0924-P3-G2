@@ -107,10 +107,21 @@ A la fin de l'installation on obtient la page suivante, qui nous fait un résum�
  ![capture 1](../Ressources/Images/MORPHEUS_10.png)   
 
 L'administration se fera donc depuis un navigateur présent le même réseau que notre serveur de messagerie via l'adresse :  
-`https://MORPHEUS.ecotech-solutions.lan/iRedAdmin/`  ou `https://iRedMail/iRedAdmin/` (souvenez vous de notre alias ;-) )
+`https://MORPHEUS.ecotech-solutions.lan/iRedAdmin/`  ou `https://iRedMail/iRedAdmin/` (souvenez vous de notre alias ;-) )  
 La messagerie "clients" sera accessible via l'URL :  
 `https://MORPHEUS.ecotech-solutions.lan/Mail/` ou `https://iRedMail/Mail/`  
 
 ### d- Gestion des comptes utilisateurs via l'interface Web   
 
+Maintenant que notre serveur est opérationnel, on va pouvoir gérer les comptes utilisateurs. Sur un poste client du réseau on se rend donc sur l'URL d'administration :  
+ `https://iRedMail/iRedAdmin/`  
+ ![capture 1](../Ressources/Images/MORPHEUS_11.png)  
+ ![capture 1](../Ressources/Images/MORPHEUS_12.png)  
+ ![capture 1](../Ressources/Images/MORPHEUS_13.png)  
+ ![capture 1](../Ressources/Images/MORPHEUS_14.png)  
+ ![capture 1](../Ressources/Images/MORPHEUS_15.png)  
+ ![capture 1](../Ressources/Images/MORPHEUS_16.png)  
+ ![capture 1](../Ressources/Images/MORPHEUS_17.png)  
+ ![capture 1](../Ressources/Images/MORPHEUS_18.png)  
+ ![capture 1](../Ressources/Images/MORPHEUS_19.png)  
 ## III. Mise en place d'un serveur de gestion de mot de passe
