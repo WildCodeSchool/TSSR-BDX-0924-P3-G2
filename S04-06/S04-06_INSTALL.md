@@ -238,7 +238,7 @@ Après exécution du script, nous avons ce retour sur le terminal :
 Nous remarquons que l'arborescence de l'AD est bonne aussi et que les espaces ainsi que les accents ont disparus. <br>
 <P ALIGN="center"><IMG src="../Ressources/Images/Captures DC01/capture_arbo_AD_new.png" width=700></P>   <BR>  
 
-Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S04-06/S04-06_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
 
 ## III. Configuration du routeur pfSense  
 
@@ -307,11 +307,11 @@ Ensuite, nous bloquons tout le reste en appliquant à la fin un `Deny All`, ains
 Nous obtenons donc la configuration suivante :  
 <P ALIGN="center"><IMG src="../Ressources/Images/capture_PFSense_7.png" width=900></P>   <BR> 
 
-Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S04-06/S04-06_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
 
 ## IV. Mise en place de dossiers partagés sur Aquaman
 
-Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S04-06/S04-06_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S04-06/S04-06_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
 
 ## V. Mise en place d'un système de supervision PRTG sur le serveur Pantha
 
