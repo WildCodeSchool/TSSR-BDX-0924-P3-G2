@@ -185,7 +185,8 @@ Pour créer l'**autorité de certification** sur **pfSense**, il faut aller dans
 - *Organization* : Ecotech Solutions
  
 Laissez le reste comme c'est, et cliquez sur `Save`. Voici ce que vous aurez une fois sauvegardé :
-**IMAGE VPN01**
+![VPN01](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/9fe1eefd69c2c6ffe8c6a5d1eb1c91932bffc46d/Ressources/Images/VPN/VPN01.png)  
+
 #### Création du certificat Server
 Le **certificat Server** sous **pfSense** est un certificat numérique qui permet de s'authentifier auprès des clients.
 
@@ -198,7 +199,8 @@ Pour créer un **certificat Server** sur **pfSense**, il faut aller dans `System
 - *Alternative Names (value)* : vpn.ecotechsolutions.local
 
 Laissez le reste comme c'est, et cliquez sur `Save`. Voici ce que vous aurez une fois sauvegardé :
-**IMAGE VPN02**
+![VPN02](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/9fe1eefd69c2c6ffe8c6a5d1eb1c91932bffc46d/Ressources/Images/VPN/VPN02.png)  
+
 ### b. Création d'un utilisateur OpenVPN
 Créer un utilisateur local OpenVPN sous **pfSense** permet de gérer l'authentification des clients VPN.
 
@@ -212,9 +214,10 @@ Pour créer un **utilisateur** sur **pfSense**, il faut aller dans `System > Use
 
 Laissez le reste comme c'est, et cliquez sur `Save`. Voici ce que vous aurez une fois sauvegardé :
 **Utilisateur**  
-**IMAGE VPN03**  
+![VPN03](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/9fe1eefd69c2c6ffe8c6a5d1eb1c91932bffc46d/Ressources/Images/VPN/VPN03.png)  
 **Certificat User**  
-**IMAGE VPN04**
+![VPN04](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/9fe1eefd69c2c6ffe8c6a5d1eb1c91932bffc46d/Ressources/Images/VPN/VPN04.png)  
+
 ### c. Configuration du serveur OpenVPN
 Maintenant nous allons pouvoir configurer notre serveur **OpenVPN** sur **pfSense**, pour cela il faudra aller dans `VPN > OpenVPN`. Dans l'onglet **Servers**, cliquez sur `+Add`, puis remplissez les champs suivants :
 - *Description* : VPN EcotechSolutions to BillU
@@ -233,12 +236,12 @@ Maintenant nous allons pouvoir configurer notre serveur **OpenVPN** sur **pfSens
 - *DNS Server 1* : 10.10.7.10
 - *Custom options* : auth-nocache
 
-Laissez le reste comme c'est, et cliquez sur `Save`. Voici ce que vous aurez une fois sauvegardé :
-**IMAGE VPN05**
+Laissez le reste comme c'est, et cliquez sur `Save`. Voici ce que vous aurez une fois sauvegardé :  
+![VPN05](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/9fe1eefd69c2c6ffe8c6a5d1eb1c91932bffc46d/Ressources/Images/VPN/VPN05.png)
 
 Maintenant que la configuration est faite, il faut exporter cette configuration pour la transmettre à l'administrateur de la société **BillU**.
 Dans un premier temps, il faut que **pfSense** est le paquet `openvpn-client-export`. Pour cela, il faut aller dans `System > Packet Manager > Available Packages`. Dans **Search term**, cherchez le paquet `openvpn-client-export` et cliquez sur `+Install`. Puis vérifiez dans **Installed Packages** que le paquet soit bien installé :  
-**IMAGE VPN06**  
+![VPN06](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/9fe1eefd69c2c6ffe8c6a5d1eb1c91932bffc46d/Ressources/Images/VPN/VPN06.png)  
 
 Une fois cela fait, allez dans l'onglet `VPN > OpenVPN > Client Export`. Puis remplissez les champs suivant :
 - *Remote Access Server* : VPN EcotechSolutions to BillU UDP4:1194
@@ -246,7 +249,7 @@ Une fois cela fait, allez dans l'onglet `VPN > OpenVPN > Client Export`. Puis re
 - *Additional configuration options* : auth-nocache
 
 Laissez le reste comme c'est, et cliquez sur `Save as default`. Maintenant pour exporter le fichier, toujours sur la même page, cliquez sur `Bundled Configurations > Archive`. Le fichier ZIP téléchargé devra être envoyé, par moyen sécurisés, à l'administrateur de chez **BillU**, et l'administrateur de chez **BillU** vous enverra celui de sa configuration. Voici le contenu de l'archive ZIP téléchargée :  
-**IMAGE VPN07**
+![VPN07](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/9fe1eefd69c2c6ffe8c6a5d1eb1c91932bffc46d/Ressources/Images/VPN/VPN07.png)  
 
 ### d. Configuration des règles de pare-feu pour OpenVPN
 Nous aurons besoin de configurer :
@@ -270,7 +273,8 @@ Si cela ne fonctionne pas, modifiez les champs suivants :
 - *Destination* : Any
 
 En faisant cela, la connexion se fera mais ne sera pas sécurisé.  
-**IMAGE VPN08**
+![VPN08](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/9fe1eefd69c2c6ffe8c6a5d1eb1c91932bffc46d/Ressources/Images/VPN/VPN08.png)  
+
 #### De OpenVPN vers le LAN
 Allez dans `Firewall > Rules > OpenVPN `, puis cliquez `+ Add`. Sur cette nouvelle page, remplissez les champs suivants :
 - *Action* : Pass
@@ -290,9 +294,9 @@ Si cela ne fonctionne pas, modifiez les champs suivants :
 Il est aussi possible de modifier **Destination** pour mettre `Address or Alias` et spécifié l'adresse d'une machine cible (comme un serveur de stockage pour partager des fichiers).
 
 En faisant cela, la connexion se fera mais ne sera pas sécurisé.  
-**IMAGE VPN09**
+![VPN09](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/9fe1eefd69c2c6ffe8c6a5d1eb1c91932bffc46d/Ressources/Images/VPN/VPN09.png)
 
 ### e. Test & Vérification de l'accès distant
 Sur le fichier **S08_USERGUIDE.md**, vous pourrez trouver la marche à suivre pour se connecter au réseau OpenVPN, qui est tout aussi important pour un simple utilisateur.
 Une fois la connexion établie, sur l'interface web de **pfSense**, allez dans `Status > OpenVPN` où vous aurez l'image suivante :  
-![VPN10](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/9fe1eefd69c2c6ffe8c6a5d1eb1c91932bffc46d/Ressources/Images/VPN/VPN10.png=)
+![VPN10](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/9fe1eefd69c2c6ffe8c6a5d1eb1c91932bffc46d/Ressources/Images/VPN/VPN10.png)
