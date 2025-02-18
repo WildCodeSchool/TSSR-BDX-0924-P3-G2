@@ -157,4 +157,142 @@ Une vérification a été effectuée avec netdom query fsmo pour s’assurer que
 ![Ressources/Images/Capture d'écran 2025-02-06 162843.png](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/Ressources/Images/Capture%20d'%C3%A9cran%202025-02-06%20162843.png)
 
 ## IV. Mise en place d'un VPN site à site avec la société BillU
+La société **Ecotech Solutions** veut mettre en place une connexion VPN avec la société **BillU**. Les deux parties utilisant un routeur *pfSense*, la configuration de cette connexion en sera plus simple car nous utiliserons les mêmes protocoles et technologies.
 
+Le routeur *pfSense* a plusieurs protocole de connexion VPN :
+- IPsec
+- OpenVPN
+- L2TP
+
+Dans un premier temps, avec l'administrateur de chez **BillU**, nous avons configuré une connexion **IPsec** mais cela ne fonctionnait pas.
+Nous avons donc décidé de configurer la connexion avec **OpenVPN**.
+
+Pour rappel, tout se fait depuis l'interface web du routeur **pfSense**, où nous y accédons via :
+- *URL* : http://10.10.255.254
+- *Login* : admin
+- *Mot de passe* : P0se!don
+### a. Configuration des certificats
+#### Création de l'autorité de certificat
+Une **autorité de certification** est une entité de confiance, elle permet de délivrer des *certificats numériques*. Ces *certificats numériques* permettront d'authentifier l'identité des utilisateurs.
+
+Pour créer l'**autorité de certification** sur **pfSense**, il faut aller dans `System > Certificates > Authorithies`. Dans cette onglet, cliquez sur `+ Add`, puis remplissez les champs suivants :
+- *Descriptive name* : CA-EcotechSolutions-OpenVPN
+- *Method* : Create an existing Certificate Authority
+- *Common Name* : ecotech-solutions
+- *Country Code* : FR
+- *State or Province* : Nouvelle Aquitaine
+- *City* : Bordeaux
+- *Organization* : Ecotech Solutions
+ 
+Laissez le reste comme c'est, et cliquez sur `Save`. Voici ce que vous aurez une fois sauvegardé :
+**IMAGE VPN01**
+#### Création du certificat Server
+Le **certificat Server** sous **pfSense** est un certificat numérique qui permet de s'authentifier auprès des clients.
+
+Pour créer un **certificat Server** sur **pfSense**, il faut aller dans `System > Certificates > Certificates`. Dans cette onglet, cliquez sur `+Add/Sign`, puis remplissez les champs suivants :
+- *Method* : Create an internal Certificate
+- *Descriptive name* : VPN-SSL-REMOTE-ACCESS
+- *Certificate authority* : CA-EcotechSolutions-OpenVPN
+- *Common name* : vpn.ecotechsolutions.local
+- *Certificate Type* : Server Certificate
+- *Alternative Names (value)* : vpn.ecotechsolutions.local
+
+Laissez le reste comme c'est, et cliquez sur `Save`. Voici ce que vous aurez une fois sauvegardé :
+**IMAGE VPN02**
+### b. Création d'un utilisateur OpenVPN
+Créer un utilisateur local OpenVPN sous **pfSense** permet de gérer l'authentification des clients VPN.
+
+Pour créer un **utilisateur** sur **pfSense**, il faut aller dans `System > User Manager`. Dans cette onglet, cliquez sur `+Add`, puis remplissez les champs suivants :
+- *Username* : EcoSolVPN
+- *Password* : Azerty1*
+- *Full Name* : Ecotech Solutions User VPN
+- *Certificate* : Cochez la case `Click to create a user certificate`
+- *Descriptive name* : VPN-SSL-RA
+- *Certificate authority* : CA-EcotechSolutions-OpenVPN
+
+Laissez le reste comme c'est, et cliquez sur `Save`. Voici ce que vous aurez une fois sauvegardé :
+**Utilisateur**  
+**IMAGE VPN03**  
+**Certificat User**  
+**IMAGE VPN04**
+### c. Configuration du serveur OpenVPN
+Maintenant nous allons pouvoir configurer notre serveur **OpenVPN** sur **pfSense**, pour cela il faudra aller dans `VPN > OpenVPN`. Dans l'onglet **Servers**, cliquez sur `+Add`, puis remplissez les champs suivants :
+- *Description* : VPN EcotechSolutions to BillU
+- *Server mode* : Remote Access (SSL/TLS + User Auth)
+- *Local port* : 1195
+- *Peer Certificate Authority* : CA-EcotechSolutions-OpenVPN
+- *Server Certificate* : VPN-SSL-REMOTE-ACCESS
+- *IPv4 Tunnel Network* : L'adresse du réseau VPN que le client de chez **BillU** utilisera une fois connecté à OpenVPN, soit `10.11.0.0/16`
+- *IPv4 Local Network* : L'adresse du réseau LAN de chez **Ecotech Solutions**, soit `10.10.0.0/16`
+- *Concurrent connections* : Le nombre de connexion VPN simultanés que vous autorisez, soit `10`
+- *Dynamic IP* : Cochez la case `Allow connected client to retain their connections if their IP address changes.`
+- *Topology* : Sélectionnez `net30 -- Isolated /30 network per client`
+- *DNS Default Domain* : Cochez la case `Provide a default domain name to clients`
+- *DNS Default Domain* : ecotech-solutions.lan
+- *DNS Server enable* : Cochez la case `Provide a DNS server list to clients. Addresses may be IPv4 or IPv6`
+- *DNS Server 1* : 10.10.7.10
+- *Custom options* : auth-nocache
+
+Laissez le reste comme c'est, et cliquez sur `Save`. Voici ce que vous aurez une fois sauvegardé :
+**IMAGE VPN05**
+
+Maintenant que la configuration est faite, il faut exporter cette configuration pour la transmettre à l'administrateur de la société **BillU**.
+Dans un premier temps, il faut que **pfSense** est le paquet `openvpn-client-export`. Pour cela, il faut aller dans `System > Packet Manager > Available Packages`. Dans **Search term**, cherchez le paquet `openvpn-client-export` et cliquez sur `+Install`. Puis vérifiez dans **Installed Packages** que le paquet soit bien installé :  
+**IMAGE VPN06**  
+
+Une fois cela fait, allez dans l'onglet `VPN > OpenVPN > Client Export`. Puis remplissez les champs suivant :
+- *Remote Access Server* : VPN EcotechSolutions to BillU UDP4:1194
+- *Host Name Resolution* : Interface IP Address
+- *Additional configuration options* : auth-nocache
+
+Laissez le reste comme c'est, et cliquez sur `Save as default`. Maintenant pour exporter le fichier, toujours sur la même page, cliquez sur `Bundled Configurations > Archive`. Le fichier ZIP téléchargé devra être envoyé, par moyen sécurisés, à l'administrateur de chez **BillU**, et l'administrateur de chez **BillU** vous enverra celui de sa configuration. Voici le contenu de l'archive ZIP téléchargée :  
+**IMAGE VPN07**
+
+### d. Configuration des règles de pare-feu pour OpenVPN
+Nous aurons besoin de configurer :
+- Le flux depuis le réseau WAN vers le réseau OpenVPN, cela permet aux clients VPN externes de se connecter au **serveur OpenVPN** ainsi que de sécuriser cette connexion.
+- Le flux depuis le réseau OpenVPN vers le réseau LAN, cela permet aux clients VPN de travailler comme s'ils étaient **physiquement dans le réseau LAN** et d'accéder aux serveurs internes, fichiers, bases de données ou autre services situés dans le LAN.
+
+#### Du WAN vers OpenVPN
+Allez dans `Firewall > Rules > WAN `, puis cliquez `+ Add`. Sur cette nouvelle page, remplissez les champs suivants :
+- *Action* : Pass
+- *Interface* : WAN
+- *Address Family* : IPv4
+- *Protocol* : UDP
+- *Source* : Any
+- *Destination* : WAN Address
+	- *Destination Port Range* : from OpenVPN (1194) to OpenVPN (1194)
+- *Log* : Cochez la case `Log packets that are handled by this rule`
+- *Description* : Autoriser le VPN SSL
+
+Si cela ne fonctionne pas, modifiez les champs suivants :
+- *Protocol* : Any
+- *Destination* : Any
+
+En faisant cela, la connexion se fera mais ne sera pas sécurisé.  
+**IMAGE VPN08**
+#### De OpenVPN vers le LAN
+Allez dans `Firewall > Rules > OpenVPN `, puis cliquez `+ Add`. Sur cette nouvelle page, remplissez les champs suivants :
+- *Action* : Pass
+- *Interface* : OpenVPN
+- *Address Family* : IPv4
+- *Protocol* : UDP
+- *Source* : Any
+- *Destination* : LAN Address
+	- *Destination Port Range* : from Any to Any
+- *Log* : Cochez la case `Log packets that are handled by this rule`
+- *Description* : Autoriser le VPN sur le LAN
+
+Si cela ne fonctionne pas, modifiez les champs suivants :
+- *Protocol* : Any
+- *Destination* : Network `10.10.0.0/16`
+
+Il est aussi possible de modifier **Destination** pour mettre `Address or Alias` et spécifié l'adresse d'une machine cible (comme un serveur de stockage pour partager des fichiers).
+
+En faisant cela, la connexion se fera mais ne sera pas sécurisé.  
+**IMAGE VPN09**
+
+### e. Test & Vérification de l'accès distant
+Sur le fichier **S08_USERGUIDE.md**, vous pourrez trouver la marche à suivre pour se connecter au réseau OpenVPN, qui est tout aussi important pour un simple utilisateur.
+Une fois la connexion établie, sur l'interface web de **pfSense**, allez dans `Status > OpenVPN` où vous aurez l'image suivante :  
+![VPN10](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/9fe1eefd69c2c6ffe8c6a5d1eb1c91932bffc46d/Ressources/Images/VPN/VPN10.png=)
