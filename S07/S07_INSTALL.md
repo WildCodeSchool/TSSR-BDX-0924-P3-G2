@@ -2,8 +2,7 @@
 
 ## I. Généralités
 Pour cette semaine, nous avons :
-- Mise en place d'un serveur de messagerie
-- Mise en place d'un serveur de gestion de mot de passe (cette partie n'a pas été faite, cet objectif était en "optionnel")
+- [Mise en place d'un serveur de messagerie](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S07/S07_INSTALL.md#ii-mise-en-place-dun-serveur-de-messagerie)
 
 ## II. Mise en place d'un serveur de messagerie  
 
@@ -145,3 +144,5 @@ Maintenant que notre serveur est opérationnel, on va pouvoir gérer les comptes
 
  C'est chose faite, la réponse est bien reçue de l'autre côté !  
  ![capture 1](../Ressources/Images/MORPHEUS_19.png)  
+
+ Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S07/S07_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
