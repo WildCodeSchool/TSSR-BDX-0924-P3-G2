@@ -13,7 +13,7 @@ Pour visualiser l'ensemble des équipements IT, il faut aller dans *Devices > Al
 ### c. Visualisation de la Map
 Pour visualiser la map de notre IT, il faut aller dans *Maps > Dashboard*.
 
-## d. Les différentes alarmes 
+### d. Les différentes alarmes 
 **PRTG** propose différents alarmes :
 - *!!* : Down, Capteur non opérationnel prioritaire
 - *w* : Warning, Capteur opérationnel mais qui a besoin d'une attention particulière
