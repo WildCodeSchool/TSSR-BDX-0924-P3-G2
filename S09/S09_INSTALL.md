@@ -128,7 +128,7 @@ Enfin, depuis une autre VM encore j'ai pu constater que le nouveau mail fonction
 
 ![capture 3](../Ressources/Images/capture_mail_3.png)    
 
-Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S09/S09_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S09/S09_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
 
 ## III. Mise en place d'un PRA suite à une panne d'électricité
 Le 30 janvier 2025, notre site a subi une panne d'électricité. Suite à cela, plusieurs de nos serveurs et poste client ont été touché.
@@ -164,4 +164,4 @@ Pour le *Serveur Windows PRTG*, l'équipement touché était les barrettes de RA
 Suite à cette panne, nous avons rempli un tableau de *Plan de Reprise d'Activité* pour avoir une trace écrite des évènements.
 ![PRA02](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/fa45b23d115145e5fdbcb080fbefeb78392ed491/Ressources/Images/PRA/PRA02.png)
 
-Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S09/S09_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S09/S09_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
