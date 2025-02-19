@@ -5,7 +5,7 @@ Pour cette semaine, nous avons :
   - [Intégrer le serveur DC02 (Windows server 2022 Core) sur le domaine de l'Active Directory](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S02/S02_INSTALL.md#iii-serveur-debian-sur-le-domaine-de-lactive-directory)
 
 ## II. L'Active Directory & les Utilisateurs
-Cette semaine, nous avons reçu la liste des utilisateurs que trouverez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/utilisateur.pdf)  
+Cette semaine, nous avons reçu la liste des utilisateurs que trouverez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/Ressources/utilisateur.pdf)  
 
 Ce fichier va être converti au format CSV, ainsi ses données pourront être intégrées dans un script qui créera automatiquement :
 - Les différentes OU (Unités d'Organisation) et sous OU dans L'AD.
