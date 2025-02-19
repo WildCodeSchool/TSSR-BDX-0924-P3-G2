@@ -2,7 +2,7 @@
 ## I. Généralités
 Pour cette semaine, nous avons :
   - [Amélioré l'Active Directory en intégrant les utilisateurs dans l'Active Directory ainsi que les OU](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S02/S02_INSTALL.md#ii-lactive-directory--les-utilisateurs)
-  - [Intégrer le serveur DC02 (Windows server 2022 Core) sur le domaine de l'Active Directory](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S02/S02_INSTALL.md#iii-serveur-debian-sur-le-domaine-de-lactive-directory)
+  - [Intégrer le serveur Debian sur le domaine de l'Active Directory](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S02/S02_INSTALL.md#iii-serveur-debian-sur-le-domaine-de-lactive-directory)
 
 ## II. L'Active Directory & les Utilisateurs
 Cette semaine, nous avons reçu la liste des utilisateurs que trouverez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/Ressources/utilisateur.pdf)  
