@@ -2,10 +2,9 @@
 
 ## I. Généralités
 Pour cette semaine, nous avons :
-- Mise en place d'un serveur de gestion des mises à jours WSUS
-- Mise en place d'un troisième `Domain Controler` puis ajout du rôle FSMO
-- Mise en place d'un VPN site à site avec la société BillU
-- Mise en place de dossiers partagés entre les utilisateurs des sociétés Ecotech Solutions & BillU
+- [Mise en place d'un serveur de gestion des mises à jours WSUS](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S08/S08_INSTALL.md#ii-mise-en-place-dun-serveur-de-gestion-des-mises-%C3%A0-jours-wsus)
+- [Mise en place d'un troisième `Domain Controler` puis ajout du rôle FSMO](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S08/S08_INSTALL.md#iii-mise-en-place-dun-troisi%C3%A8me-domain-controler-puis-ajout-du-r%C3%B4le-fsmo)
+- [Mise en place d'un VPN site à site avec la société BillU](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S08/S08_INSTALL.md#iv-mise-en-place-dun-vpn-site-%C3%A0-site-avec-la-soci%C3%A9t%C3%A9-billu)
 
 ## II. Mise en place d'un serveur de gestion des mises à jours WSUS
 ### a. Configuration générale du serveur WSUS
@@ -126,6 +125,8 @@ Mais pas le terminal PowerShell ISE, où la commande ne fonctionne pas tout le t
 Une fois la GPO mis, retournons sur le serveur WSUS pour vérifier que les machines soit visible.   
 ![WSUS09](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/11dd610963549d59ca4e32dde22a0f58f7c086aa/Ressources/Images/WSUS/WSUS09.png) 
 
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S08/S08_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+
 ## III. Mise en place d'un troisième `Domain Controler` puis ajout du rôle FSMO
 
 Pour éviter qu’un seul serveur ne gère toutes les tâches importantes du domaine, nous avons réparti les rôles FSMO sur plusieurs contrôleurs de domaine. Au départ, un seul serveur détenait tous les rôles. Pour améliorer la stabilité et la sécurité du réseau, nous avons ajouté deux nouveaux DC et transféré certains rôles sur ces serveurs. Cela permet de mieux répartir la charge et d’éviter qu’une panne ne bloque tout le système.
@@ -156,6 +157,8 @@ Une vérification a été effectuée avec netdom query fsmo pour s’assurer que
 
 ![Ressources/Images/Capture d'écran 2025-02-06 162843.png](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/Ressources/Images/Capture%20d'%C3%A9cran%202025-02-06%20162843.png)
 
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S08/S08_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+
 ## IV. Mise en place d'un VPN site à site avec la société BillU
 La société **Ecotech Solutions** veut mettre en place une connexion VPN avec la société **BillU**. Les deux parties utilisant un routeur *pfSense*, la configuration de cette connexion en sera plus simple car nous utiliserons les mêmes protocoles et technologies.
 
@@ -168,7 +171,7 @@ Dans un premier temps, avec l'administrateur de chez **BillU**, nous avons confi
 Nous avons donc décidé de configurer la connexion avec **OpenVPN**.
 
 Pour rappel, tout se fait depuis l'interface web du routeur **pfSense**, où nous y accédons via :
-- *URL* : http://10.10.255.254
+- *URL* : `http://10.10.255.254`
 - *Login* : admin
 - *Mot de passe* : P0se!don
 ### a. Configuration des certificats
@@ -300,3 +303,5 @@ En faisant cela, la connexion se fera mais ne sera pas sécurisé.
 Sur le fichier **S08_USERGUIDE.md**, vous pourrez trouver la marche à suivre pour se connecter au réseau OpenVPN, qui est tout aussi important pour un simple utilisateur.
 Une fois la connexion établie, sur l'interface web de **pfSense**, allez dans `Status > OpenVPN` où vous aurez l'image suivante :  
 ![VPN10](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/9fe1eefd69c2c6ffe8c6a5d1eb1c91932bffc46d/Ressources/Images/VPN/VPN10.png)
+
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S08/S08_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
