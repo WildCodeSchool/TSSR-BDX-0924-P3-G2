@@ -1,8 +1,8 @@
 # Guide d'installation pour l'administrateur
 ## I. Généralités
 Pour cette semaine, nous avons :
-  - [Amélioré l'Active Directory en intégrant les utilisateurs dans l'Active Directory ainsi que les OU](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S02/S02_INSTALL.md#ii-lactive-directory--les-utilisateurs)
-  - [Intégrer le serveur DC02 (Windows server 2022 Core) sur le domaine de l'Active Directory](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S02/S02_INSTALL.md#iii-serveur-debian-sur-le-domaine-de-lactive-directory)
+  - [Amélioré l'Active Directory en intégrant les utilisateurs dans l'Active Directory ainsi que les OU](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S02/S02_INSTALL.md#ii-lactive-directory--les-utilisateurs)
+  - [Intégrer le serveur DC02 (Windows server 2022 Core) sur le domaine de l'Active Directory](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S02/S02_INSTALL.md#iii-serveur-debian-sur-le-domaine-de-lactive-directory)
 
 ## II. L'Active Directory & les Utilisateurs
 Cette semaine, nous avons reçu la liste des utilisateurs que trouverez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/Ressources/utilisateur.pdf)  
@@ -140,7 +140,7 @@ Nous vérifions ensuite dans la console du Server Manager avec l'outil Active Di
 
 L'arborescence est bonne et les utilisateurs ont bien leur attibuts renseignés.  
 
-Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S02/S02_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S02/S02_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
 
 ## III. Serveur Debian sur le domaine de l'Active Directory
 Une fois que le domaine et l'Active Directory bien établie, nous avons connecté notre serveur Debian dessus.
@@ -322,4 +322,4 @@ getent passwd
 getent group
 ```
 A savoir que l'*utilisateurAD* correspond à l'adresse mail de l'utilisateur.  
-Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/Dev/S02/S02_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
+Cliquez [ici](https://github.com/WildCodeSchool/TSSR-BDX-0924-P3-G2/blob/main/S02/S02_INSTALL.md#guide-dinstallation-pour-ladministrateur) pour revenir en début de page.
